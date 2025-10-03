@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>After Effects Cheatsheet - Application Cheatsheet Hub</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --light-text: #6c757d;
+            --border-radius: 12px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --aftereffects-color: #9999ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--box-shadow);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        /* App Header Section */
+        .app-header {
+            background: linear-gradient(135deg, var(--aftereffects-color), #7777dd);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .app-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .app-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .app-description {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            justify-content: center;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            position: sticky;
+            top: 70px;
+            z-index: 90;
+        }
+
+        .tab-button {
+            padding: 1rem 2rem;
+            background: none;
+            border: none;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--light-text);
+            cursor: pointer;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .tab-button:hover {
+            color: var(--aftereffects-color);
+        }
+
+        .tab-button.active {
+            color: var(--aftereffects-color);
+        }
+
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--aftereffects-color);
+        }
+
+        /* Content Sections */
+        .content-section {
+            display: none;
+            padding: 2rem 0;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title i {
+            margin-right: 10px;
+            color: var(--aftereffects-color);
+        }
+
+        /* Tool Cards */
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tool-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .tool-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--aftereffects-color);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .tool-name i {
+            margin-right: 8px;
+        }
+
+        .tool-description {
+            margin-bottom: 1rem;
+        }
+
+        .tool-example {
+            background-color: #f9f9f9;
+            padding: 1rem;
+            border-left: 3px solid var(--aftereffects-color);
+            margin-top: 1rem;
+        }
+
+        .tool-example-title {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Keyboard Shortcuts */
+        .shortcut-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        .shortcut-table th {
+            background-color: var(--aftereffects-color);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .shortcut-table td {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .shortcut-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .shortcut-table tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .shortcut-key {
+            font-family: 'Source Code Pro', monospace;
+            background-color: #f1f1f1;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        /* Tutorial Cards */
+        .tutorial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tutorial-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .tutorial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .tutorial-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .tutorial-content {
+            padding: 1.5rem;
+        }
+
+        .tutorial-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .tutorial-description {
+            margin-bottom: 1rem;
+        }
+
+        .tutorial-steps {
+            margin-top: 1rem;
+        }
+
+        .tutorial-step {
+            display: flex;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-number {
+            background-color: var(--aftereffects-color);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem;
+            }
+
+            .app-title {
+                font-size: 2rem;
+            }
+
+            .tab-nav {
+                flex-wrap: wrap;
+            }
+
+            .tab-button {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="material-icons">school</i>
+                <a href="index.html" style="color: white; text-decoration: none;">Application Cheatsheet Hub</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="excel.html">Excel</a></li>
+                    <li><a href="word.html">Word</a></li>
+                    <li><a href="powerpoint.html">PowerPoint</a></li>
+                    <li><a href="photoshop.html">Photoshop</a></li>
+                    <li><a href="illustrator.html">Illustrator</a></li>
+                    <li><a href="premiere.html">Premiere Pro</a></li>
+                    <li><a href="aftereffects.html" class="active">After Effects</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- App Header Section -->
+    <section class="app-header">
+        <div class="container">
+            <i class="material-icons app-icon">animation</i>
+            <h1 class="app-title">Adobe After Effects Cheatsheet</h1>
+            <p class="app-description">Master After Effects with essential animation tools, keyboard shortcuts, and step-by-step tutorials</p>
+        </div>
+    </section>
+
+    <!-- Tab Navigation -->
+    <div class="tab-nav">
+        <button class="tab-button active" onclick="showTab('tools')">Animation Tools</button>
+        <button class="tab-button" onclick="showTab('shortcuts')">Keyboard Shortcuts</button>
+        <button class="tab-button" onclick="showTab('tutorials')">Tutorials</button>
+    </div>
+
+    <!-- Content Container -->
+    <div class="container">
+        <!-- Tools Section -->
+        <section id="tools" class="content-section active">
+            <h2 class="section-title"><i class="material-icons">build</i> Essential Animation Tools</h2>
+            
+            <div class="tool-grid">
+                <div class="tool-card">
+                    <h3 class="tool-name"><i class="material-icons">motion_photos_on</i> Keyframes</h3>
+                    <p class="tool-description">Create animations by setting keyframes at different points in time.</p>
+                    <div class="tool-example">
+                        <div class="tool-example-title">How to use:</div>
+                        <p>Select a property, click the stopwatch icon to create a keyframe, then move the timeline and adjust values</p>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <h3 class="tool-name"><i class="material-icons">tune</i> Graph Editor</h3>
+                    <p class="tool-description">Fine-tune animation curves for more natural movement.</p>
+                    <div class="tool-example">
+                        <div class="tool-example-title">How to use:</div>
+                        <p>Select keyframes, click the graph editor button, and adjust the curves to control acceleration</p>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <h3 class="tool-name"><i class="material-icons">layers</i> Masks</h3>
+                    <p class="tool-description">Create selective areas to apply effects or hide parts of layers.</p>
+                    <div class="tool-example">
+                        <div class="tool-example-title">How to use:</div>
+                        <p>Select a layer, use the Pen or Shape tools to create a mask, then adjust mask properties</p>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <h3 class="tool-name"><i class="material-icons">blur_on</i> Effects</h3>
+                    <p class="tool-description">Apply visual effects to enhance your animations.</p>
+                    <div class="tool-example">
+                        <div class="tool-example-title">How to use:</div>
+                        <p>Right-click a layer > Effect, or use the Effects & Presets panel to browse and apply effects</p>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <h3 class="tool-name"><i class="material-icons">auto_awesome</i> Expressions</h3>
+                    <p class="tool-description">Create complex animations with JavaScript-based expressions.</p>
+                    <div class="tool-example">
+                        <div class="tool-example-title">How to use:</div>
+                        <p>Alt-click the stopwatch of a property to open the expression editor and write code</p>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <h3 class="tool-name"><i class="material-icons">view_in_ar</i> 3D Layers</h3>
+                    <p class="tool-description">Create depth and perspective with 3D layers and cameras.</p>
+                    <div class="tool-example">
+                        <div class="tool-example-title">How to use:</div>
+                        <p>Enable 3D layer switch, adjust position in 3D space, and add a camera layer for perspective</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Keyboard Shortcuts Section -->
+        <section id="shortcuts" class="content-section">
+            <h2 class="section-title"><i class="material-icons">keyboard</i> Keyboard Shortcuts</h2>
+            
+            <h3 style="margin-bottom: 1rem; color: var(--aftereffects-color);">Playback & Navigation</h3>
+            <table class="shortcut-table">
+                <thead>
+                    <tr>
+                        <th>Shortcut</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="shortcut-key">Space</span></td>
+                        <td>Play/Pause</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">0</span> on numeric keypad</td>
+                        <td>RAM Preview</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">.</span> on numeric keypad</td>
+                        <td>Preview only current frame</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">J</span> / <span class="shortcut-key">K</span> / <span class="shortcut-key">L</span></td>
+                        <td>Previous frame / Pause / Next frame</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Home</span> / <span class="shortcut-key">End</span></td>
+                        <td>Go to beginning / end of composition</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Page Up</span> / <span class="shortcut-key">Page Down</span></td>
+                        <td>Go to previous / next keyframe</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3 style="margin-bottom: 1rem; color: var(--aftereffects-color);">Layer & Composition</h3>
+            <table class="shortcut-table">
+                <thead>
+                    <tr>
+                        <th>Shortcut</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">N</span></td>
+                        <td>New Composition</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">Y</span></td>
+                        <td>New Solid Layer</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">Alt</span> + <span class="shortcut-key">Y</span></td>
+                        <td>New Adjustment Layer</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">D</span></td>
+                        <td>Duplicate Layer</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">Shift</span> + <span class="shortcut-key">D</span></td>
+                        <td>Duplicate Layer with Properties</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">U</span></td>
+                        <td>Show/Hide all keyframed properties</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3 style="margin-bottom: 1rem; color: var(--aftereffects-color);">Animation & Keyframes</h3>
+            <table class="shortcut-table">
+                <thead>
+                    <tr>
+                        <th>Shortcut</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="shortcut-key">Alt</span> + <span class="shortcut-key">Click stopwatch</span></td>
+                        <td>Add expression to property</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Alt</span> + <span class="shortcut-key">Shift</span> + <span class="shortcut-key">Click property</span></td>
+                        <td>Add property to Graph Editor</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">F9</span></td>
+                        <td>Easy Ease keyframe</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">Alt</span> + <span class="shortcut-key">F9</span></td>
+                        <td>Easy Ease In</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">Shift</span> + <span class="shortcut-key">F9</span></td>
+                        <td>Easy Ease Out</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">Alt</span> + <span class="shortcut-key">A</span></td>
+                        <td>Toggle Animation stopwatch</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Tutorials Section -->
+        <section id="tutorials" class="content-section">
+            <h2 class="section-title"><i class="material-icons">school</i> Popular Tutorials</h2>
+            
+            <div class="tutorial-grid">
+                <div class="tutorial-card">
+                    <img src="https://sfile.chatglm.cn/images-ppt/2efa759aa680.jpg" alt="Motion Graphics Tutorial" class="tutorial-image">
+                    <div class="tutorial-content">
+                        <h3 class="tutorial-title">Creating Basic Motion Graphics</h3>
+                        <p class="tutorial-description">Learn the fundamentals of creating animated graphics and text.</p>
+                        <div class="tutorial-steps">
+                            <div class="tutorial-step">
+                                <div class="step-number">1</div>
+                                <div>Create a new composition and add text or shape layers</div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-number">2</div>
+                                <div>Set keyframes for position, scale, and rotation</div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-number">3</div>
+                                <div>Apply Easy Ease to smooth the animation</div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-number">4</div>
+                                <div>Add effects like Drop Shadow or Glow for polish</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tutorial-card">
+                    <img src="https://sfile.chatglm.cn/images-ppt/3b9bebb1f9e7.jpg" alt="Kinetic Typography Tutorial" class="tutorial-image">
+                    <div class="tutorial-content">
+                        <h3 class="tutorial-title">Kinetic Typography Animation</h3>
+                        <p class="tutorial-description">Bring text to life with dynamic typography animations.</p>
+                        <div class="tutorial-steps">
+                            <div class="tutorial-step">
+                                <div class="step-number">1</div>
+                                <div>Break text into separate layers for individual control</div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-number">2</div>
+                                <div>Animate position, scale, and opacity with offset timing</div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-number">3</div>
+                                <div>Use text animators for more complex effects</div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-number">4</div>
+                                <div>Sync animations with audio or music beats</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tutorial-card">
+                    <img src="https://sfile.chatglm.cn/images-ppt/f444985d4a66.jpg" alt="3D Animation Tutorial" class="tutorial-image">
+                    <div class="tutorial-content">
+                        <h3 class="tutorial-title">Basic 3D Animation</h3>
+                        <p class="tutorial-description">Create depth and perspective with 3D layers and cameras.</p>
+                        <div class="tutorial-steps">
+                            <div class="tutorial-step">
+                                <div class="step-number">1</div>
+                                <div>Enable 3D for layers and arrange them in Z-space</div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-number">2</div>
+                                <div>Add a camera layer and adjust position/orientation</div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-number">3</div>
+                                <div>Keyframe camera movement for dynamic shots</div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-number">4</div>
+                                <div>Add lights and shadows for realistic depth</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Video Tutorials</a></li>
+                        <li><a href="#">Downloadable PDFs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contribute</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 Application Cheatsheet Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all content sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all tab buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show the selected content section
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to the clicked tab button
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
