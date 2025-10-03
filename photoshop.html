@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photoshop Cheatsheet - Application Cheatsheet Hub</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --light-text: #6c757d;
+            --border-radius: 12px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --photoshop-color: #31a5ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--box-shadow);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        /* App Header Section */
+        .app-header {
+            background: linear-gradient(135deg, var(--photoshop-color), #0080cc);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .app-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .app-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .app-description {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            justify-content: center;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            position: sticky;
+            top: 70px;
+            z-index: 90;
+        }
+
+        .tab-button {
+            padding: 1rem 2rem;
+            background: none;
+            border: none;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--light-text);
+            cursor: pointer;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .tab-button:hover {
+            color: var(--photoshop-color);
+        }
+
+        .tab-button.active {
+            color: var(--photoshop-color);
+        }
+
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--photoshop-color);
+        }
+
+        /* Content Sections */
+        .content-section {
+            display: none;
+            padding: 2rem 0;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title i {
+            margin-right: 10px;
+            color: var(--photoshop-color);
+        }
+
+        /* Tool Cards */
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tool-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .tool-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--photoshop-color);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .tool-name i {
+            margin-right: 8px;
+        }
+
+        .tool-description {
+            margin-bottom: 1rem;
+        }
+
+        .tool-example {
+            background-color: #f9f9f9;
+            padding: 1rem;
+            border-left: 3px solid var(--photoshop-color);
+            margin-top: 1rem;
+        }
+
+        .tool-example-title {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Keyboard Shortcuts */
+        .shortcut-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        .shortcut-table th {
+            background-color: var(--photoshop-color);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .shortcut-table td {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .shortcut-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .shortcut-table tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .shortcut-key {
+            font-family: 'Source Code Pro', monospace;
+            background-color: #f1f1f1;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        /* Tutorial Cards */
+        .tutorial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tutorial-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .tutorial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .tutorial-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .tutorial-content {
+            padding: 1.5rem;
+        }
+
+        .tutorial-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .tutorial-description {
+            margin-bottom: 1rem;
+        }
+
+        .tutorial-steps {
+            margin-top: 1rem;
+        }
+
+        .tutorial-step {
+            display: flex;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-number {
+            background-color: var(--photoshop-color);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            flex: 1;
+        }
+
+        /* Selection Tools */
+        .selection-tools {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .selection-tools-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .selection-tools-title i {
+            margin-right: 10px;
+            color: var(--photoshop-color);
+        }
+
+        .selection-tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .selection-tool {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .selection-tool:hover {
+            background-color: #e9ecef;
+        }
+
+        .selection-tool.selected {
+            background-color: #e3f2fd;
+            border: 1px solid var(--photoshop-color);
+        }
+
+        .selection-tool-name {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Mask Tools */
+        .mask-tools {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .mask-tools-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .mask-tools-title i {
+            margin-right: 10px;
+            color: var(--photoshop-color);
+        }
+
+        .mask-tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .mask-tool {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .mask-tool:hover {
+            background-color: #e9ecef;
+        }
+
+        .mask-tool.selected {
+            background-color: #e3f2fd;
+            border: 1px solid var(--photoshop-color);
+        }
+
+        .mask-tool-name {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Adjustment Layers */
+        .adjustment-layers {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .adjustment-layers-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .adjustment-layers-title i {
+            margin-right: 10px;
+            color: var(--photoshop-color);
+        }
+
+        .adjustment-layers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .adjustment-layer {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .adjustment-layer:hover {
+            background-color: #e9ecef;
+        }
+
+        .adjustment-layer.selected {
+            background-color: #e3f2fd;
+            border: 1px solid var(--photoshop-color);
+        }
+
+        .adjustment-layer-name {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Filter Tools */
+        .filter-tools {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .filter-tools-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .filter-tools-title i {
+            margin-right: 10px;
+            color: var(--photoshop-color);
+        }
+
+        .filter-tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .filter-tool {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-tool:hover {
+            background-color: #e9ecef;
+        }
+
+        .filter-tool.selected {
+            background-color: #e3f2fd;
+            border: 1px solid var(--photoshop-color);
+        }
+
+        .filter-tool-name {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Type Tool */
+        .type-tool {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .type-tool-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .type-tool-title i {
+            margin-right: 10px;
+            color: var(--photoshop-color);
+        }
+
+        .type-tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .type-tool {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .type-tool:hover {
+            background-color: #e9ecef;
+        }
+
+        .type-tool.selected {
+            background-color: #e3f2fd;
+            border: 1px solid var(--photoshop-color);
+        }
+
+        .type-tool-name {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem;
+            }
+
+            .app-title {
+                font-size: 2rem;
+            }
+
+            .tab-nav {
+                flex-wrap: wrap;
+            }
+
+            .tab-button {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="material-icons">school</i>
+                <a href="index.html" style="color: white; text-decoration: none;">Application Cheatsheet Hub</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="excel.html">Excel</a></li>
+                    <li><a href="word.html">Word</a></li>
+                    <li><a href="powerpoint.html" class="active">PowerPoint</a></li>
+                    <li><a href="photoshop.html">Photoshop</a></li>
+                    <li><a href="illustrator.html">Illustrator</a></li>
+                    <li><a href="premiere.html">Premiere Pro</a></li>
+                    <li><a href="aftereffects.html">After Effects</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- App Header Section -->
+    <section class="app-header">
+        <div class="container">
+            <i class="material-icons app-icon">photo</i>
+            <h1 class="app-title">Adobe Photoshop Cheatsheet</h1>
+            <p class="app-description">Master Photoshop with essential tools, keyboard shortcuts, and step-by-step tutorials</p>
+        </div>
+    </section>
+
+    <!-- Tab Navigation -->
+    <div class="tab-nav">
+        <button class="tab-button active" onclick="showTab('tools')">Essential Tools</button>
+        <button class="tab-button" onclick="showTab('shortcuts')">Keyboard Shortcuts</button>
+        <button class="tab-button" onclick="showTab('tutorials')">Tutorials</button>
+    </div>
+
+    <!-- Content Container -->
+    <div class="container">
+        <!-- Tools Section -->
+        <section id="tools" class="content-section active">
+            <h2 class="section-title"><i class="material-icons">build</i> Essential Tools</h2>
+            
+            <div class="tool-grid">
+                <div class="tool-card">
+                    <h3 class="tool-name"><i class="material-icons">crop</i> Crop Tool</h3>
+                    <p class="tool-description">Trim or extend the canvas size of your image.</p>
+                    <div class="tool-example">
+                        <div class="tool-example-title">How to use:</div>
+                        <p>Select the Crop Tool (C), drag to define the crop area, and press Enter to apply</p>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <h3 class="tool-name"><i class="material-icons">brush</i> Brush Tool</h3>
+                    <p class="tool-description">Paint on your image with customizable brushes.</p>
+                    <div class="tool-example">
+                        <div class="tool-example-title">How to use:</div>
+                        <p>Select Brush Tool (B), choose brush settings, and click/drag to paint</p>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <h3 class="tool-name"><i class="material-icons">format_color_fill</i> Paint Bucket</h3>
+                    <p class="tool-description">Fill areas with a solid color or pattern.</p>
+                    <div class="tool-example">
+                        <div class="tool-example-title">How to use:</div>
+                        <p>Select Paint Bucket Tool (G), set fill options, and click to fill an area</p>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <h3 class="tool-name"><i class="material-icons">content_cut</i> Selection Tools</h3>
+                    <p class="tool-description">Select specific parts of your image for editing.</p>
+                    <div class="tool-example">
+                        <div class="tool-example-title">How to use:</div>
+                        <p>Use Marquee (M), Lasso (L), or Quick Selection (W) tools to create selections</p>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <h3 class="tool-name"><i class="material-icons">healing</i> Healing Tools</h3>
+                    <p class="tool-description">Remove imperfections and unwanted elements.</p>
+                    <div class="tool-example">
+                        <div class="tool-example-title">How to use:</div>
+                        <p>Use Spot Healing Brush (J) or Clone Stamp (S) or Clone Stamp (S) to remove blemishes</p>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <h3 class="tool-name"><i class="material-icons">text_fields</i> Type Tool</h3>
+                    <p class="tool-description">Add and edit text in your images.</p>
+                    <div class="tool-example">
+                        <div class="tool-example-title">How to use:</div>
+                        <p>Select Type Tool (T), click where you want to add text</p>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <h3 class="tool-name"><i class="material-icons">transform</i> Transform Tools</h3>
+                    <p class="tool-description">Scale, rotate, and distort objects and paths.</p>
+                    <div class="tool-example">
+                        <div class="tool-example-title">How to use:</div>
+                        <p>Select object, use Free Transform Tool (E) or go to Object > Transform for precise controls</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Keyboard Shortcuts Section -->
+        <section id="shortcuts" class="content-section">
+            <h2 class="section-title"><i class="material-icons">keyboard</i> Keyboard Shortcuts</h2>
+            
+            <h3 style="margin-bottom: 1rem; color: var(--photoshop-color);">Tool Shortcuts</h3>
+            <table class="shortcut-table">
+                <thead>
+                    <tr>
+                        <th>Shortcut</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="shortcut-key">V</span></td>
+                        <td>Move Tool</td>
+                    </tr>
+                    <td><span class="shortcut-key">M</span></td>
+                        <td>Marquee Selection Tool</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">L</span></td>
+                        <td>Lasso Tool</td>
+                    </tr>
+                    <tr>
+                        <span class="shortcut-key">W</span></td>
+                        <td>Quick Selection Tool</td>
+                    </tr>
+                    <tr>
+                        <span class="shortcut-key">B</span></td>
+                        <span class="shortcut-key">Brush Tool</span></td>
+                    </tr>
+                    <tr>
+                        <span class="shortcut-key">E</span></td>
+                        <span class="shortcut-key">Eraser Tool</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3 style="margin-bottom: 1rem; color: var(--photoshop-color);">Editing Shortcuts</h3>
+            <table class="shortcut-table">
+                <thead>
+                    <tr>
+                        <th>Shortcut</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">Z</span></td>
+                        <td>Undo last action</td>
+                    </tr>
+                    <tr>
+                        <span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">Y</span></td>
+                        <td>Redo last action</td>
+                    </tr>
+                    <tr>
+                        <span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">C</span></td>
+                        <td>Copy selected cells</td>
+                    </tr>
+                    <tr>
+                        <span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">V</span></td>
+                        <td>Paste copied cells</td>
+                    </tr>
+                    <tr>
+                        <span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">X</span></td>
+                        <td>Cut selected cells</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3 style="margin-bottom: 1rem; color: var(--photoshop-color);">Filter & Adjustments</h3>
+            <table class="shortcut-table">
+                <thead>
+                    <tr>
+                        <th>Shortcut</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">L</span></td>
+                        <td>Increase font size</td>
+                    </tr>
+                    <tr>
+                        <span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">Shift</span> + <span class="shortcut-key"><</span></td>
+                        <td>Decrease font size</td>
+                    </tr>
+                    <tr>
+                        <span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">1</span></td>
+                        <td>Increase font size by 1pt</td>
+                    </tr>
+                    <tr>
+                        <span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">D</span></td>
+                        <td>Open Format Cells dialog box</td>
+                    </tr>
+                    <tr>
+                        <span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">Shift</span> + <span class="shortcut-key">$</span></td>
+                        <td>Apply currency format</td>
+                    </tr>
+                    <tr>
+                        <span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">Shift</span> + <span class="shortcut-key">%</span></td>
+                        <td>Apply percentage format</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3 style="margin-bottom: 1rem; color: var(--photoshop-color);">Layer Shortcuts</h3>
+            <table class="shortcut-table">
+                <thead>
+                    <tr>
+                        <th>Shortcut</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">J</span></td>
+                        <td>Jump to the edge of the current layer</td>
+                    </tr>
+                    <tr>
+                        <span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">[</span></td>
+                        <td>Jump to the edge of the current layer</td>
+                    </tr>
+                    <tr>
+                        <span class="shortcut-key">Alt</span> + <span class="shortcut-key">click</span></td>
+                        <td>Select layer</td>
+                    </tr>
+                    <tr>
+                        <span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">Alt</span> + <span class="shortcut-key">click</span></td>
+                        <td>Select layer</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Tutorials Section -->
+        <section id="tutorials" class="content-section">
+            <h2 class="section-title"><i class="material-icons">school</i> Popular Tutorials</h2>
+            
+            <div class="tutorial-grid">
+                <div class="tutorial-card">
+                    <img src="https://sfile.chatglm.cn/images-ppt/08eac31e944d.jpg" alt="Background Removal Tutorial" class="tutorial-image">
+                    <div class="tutorial-content">
+                        <h3 class="tutorial-title">Removing Backgrounds</h3>
+                        <p class="tutorial-description">Learn how to remove backgrounds from images with precision.</p>
+                        <div class="tutorial-steps">
+                            <div class="tutorial-step">
+                                <div class="step-number">1</div>
+                                <div>Select the layer you want to edit</div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-number">2</div>
+                                <div>Select the Quick Selection Tool (W)</div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-number">3</div>
+                                <div>Refine the selection</div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-number">4</div>
+                                <div>Refine the selection edge</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tutorial-card">
+                    <img src="https://sfile.chatglm.cn/images-ppt/1c0034b029fc.jpg" alt="Layer Mask Tutorial" class="tutorial-image">
+                        <div class="tutorial-content">
+                            <h3 class="tutorial-title">Non-Destructive Editing with Layer Masks</h3>
+                        <p class="tutorial-description">Master non-destructive editing with layer masks.</p>
+                        <div class="tutorial-steps">
+                            <div class="tutorial-step">
+                                <div class="step-number">1</div>
+                                <div>Create a new adjustment layer</div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-number">2</div>
+                                <div>Apply the adjustment layer</div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-number">3</div>
+                                <div>Refine the adjustment</div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-number">4</div>
+                                <div>Refine the adjustment</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tutorial-card">
+                    <img src="https://sfile.chatglm.cn/images-ppt/2c2c7e664d1d.jpg" alt="Color Correction Tutorial" class="tutorial-image">
+                        <div class="tutorial-content">
+                            <h3 class="tutorial-title">Basic Color Correction</h3>
+                        <p class="tutorial-description">Enhance your photos with professional color correction techniques.</p>
+                        <div class="tutorial-steps">
+                            <div class="tutorial-step">
+                                <div class="step-number">1</div>
+                                <div>Create a new adjustment layer</div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-number">2</div>
+                                <div>Open the Lumetri Color panel</div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-number">3</div>
+                                <div>Apply color corrections</div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-number">4</div>
+                                <div>Fine-tune with advanced techniques</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tutorial-card">
+                    <img src="https://sfile.chatglm.cn/images-ppt/2030c241423b.jpg" alt="Vector Portrait Tutorial" class="tutorial-image">
+                        <div class="tutorial-content">
+                            <h3 class="tutorial-title">Vector Portrait Illustration</h3>
+                            <p class="tutorial-description">Create detailed vector portraits using the Pen Tool.</p>
+                            <div class="tutorial-steps">
+                                <div class="tutorial-step">
+                                    <div class="step-number">1</div>
+                                    <div>Start with a reference image</div>
+                                </div>
+                                <div class="tutorial-step">
+                                    <div class="step-number">2</div>
+                                    <div>Select the Pen Tool (P)</div>
+                                </div>
+                                <div class="tutorial-step">
+                                    <div class="step-number">3</div>
+                                    <div>Create precise paths using the Pen Tool</div>
+                                </div>
+                                <div class="tutorial-step">
+                                    <div class="step-number">4</div>
+                                    <div>Refine details</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Video Tutorials</a></li>
+                        <li><a href="#">Downloadable PDFs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contribute</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 Application Cheatsheet Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all content sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all tab buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show the selected content section
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to the clicked tab button
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
