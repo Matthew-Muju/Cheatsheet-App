@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance & Accessibility - Application Cheatsheet Hub</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --light-text: #6c757d;
+            --border-radius: 12px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --excel-color: #217346;
+            --word-color: #2b579a;
+            --powerpoint-color: #d24726;
+            --photoshop-color: #31a5ff;
+            --illustrator-color: #ff7c00;
+            --premiere-color: #9999ff;
+            --aftereffects-color: #9999ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--box-shadow);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        /* Feature Cards */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 1.5rem;
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #f1f1f1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .card-description {
+            margin-bottom: 1.5rem;
+            color: var(--light-text);
+            flex-grow: 1;
+        }
+
+        .card-action {
+            margin-top: auto;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .btn i {
+            margin-right: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #2980b9;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        /* Performance Metrics */
+        .metrics-container {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .metrics-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .metrics-title i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .metric-item {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 1rem;
+            color: var(--light-text);
+        }
+
+        /* Accessibility Features */
+        .accessibility-features {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .features-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .features-title i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .feature-icon {
+            color: var(--secondary-color);
+            margin-right: 1rem;
+            margin-top: 0.2rem;
+        }
+
+        .feature-text {
+            flex: 1;
+        }
+
+        .feature-name {
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+
+        .feature-desc {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        /* Print Styles */
+        .print-section {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .print-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .print-title i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+
+        .print-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .print-option {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .print-option:hover {
+            background-color: #f1f1f1;
+            border-color: var(--secondary-color);
+        }
+
+        .print-option-icon {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .print-option-title {
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+
+        .print-option-desc {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        /* Mobile Features */
+        .mobile-features {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .mobile-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .mobile-title i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+
+        .mobile-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .mobile-item {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .mobile-icon {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .mobile-name {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .mobile-desc {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media print {
+            header, footer, .hero, .btn {
+                display: none;
+            }
+            
+            body {
+                background-color: white;
+                color: black;
+            }
+            
+            .feature-card, .metrics-container, .accessibility-features, 
+            .print-section, .mobile-features {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="material-icons">school</i>
+                <a href="index.html" style="color: white; text-decoration: none;">Application Cheatsheet Hub</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="excel.html">Excel</a></li>
+                    <li><a href="word.html">Word</a></li>
+                    <li><a href="powerpoint.html">PowerPoint</a></li>
+                    <li><a href="photoshop.html">Photoshop</a></li>
+                    <li><a href="illustrator.html">Illustrator</a></li>
+                    <li><a href="premiere.html">Premiere Pro</a></li>
+                    <li><a href="aftereffects.html">After Effects</a></li>
+                    <li><a href="interactive.html">Interactive Testing</a></li>
+                    <li><a href="account.html">My Account</a></li>
+                    <li><a href="search.html">Advanced Search</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="personalization.html">Personalization</a></li>
+                    <li><a href="performance.html" class="active">Performance</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Performance & Accessibility</h1>
+            <p>Optimize your experience with faster loading, print-friendly options, and enhanced accessibility features</p>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Performance Optimization</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="material-icons">speed</i>
+                        </div>
+                        <h3 class="card-title">Lazy Loading</h3>
+                    </div>
+                    <p class="card-description">Images and content load as you scroll, significantly improving initial page load times and reducing data usage.</p>
+                    <div class="card-action">
+                        <button class="btn btn-primary">
+                            <i class="material-icons">settings</i>
+                            Configure
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="material-icons">cached</i>
+                        </div>
+                        <h3 class="card-title">Smart Caching</h3>
+                    </div>
+                    <p class="card-description">Frequently accessed content is cached locally for instant access, reducing server requests and improving performance.</p>
+                    <div class="card-action">
+                        <button class="btn btn-primary">
+                            <i class="material-icons">settings</i>
+                            Configure
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="material-icons">compress</i>
+                        </div>
+                        <h3 class="card-title">Image Optimization</h3>
+                    </div>
+                    <p class="card-description">Images are automatically compressed and served in the most efficient format based on your device and connection.</p>
+                    <div class="card-action">
+                        <button class="btn btn-primary">
+                            <i class="material-icons">settings</i>
+                            Configure
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Performance Metrics -->
+            <div class="metrics-container">
+                <h3 class="metrics-title">
+                    <i class="material-icons">analytics</i>
+                    Performance Metrics
+                </h3>
+                
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <div class="metric-value">1.2s</div>
+                        <div class="metric-label">Average Load Time</div>
+                    </div>
+                    
+                    <div class="metric-item">
+                        <div class="metric-value">95</div>
+                        <div class="metric-label">Performance Score</div>
+                    </div>
+                    
+                    <div class="metric-item">
+                        <div class="metric-value">60%</div>
+                        <div class="metric-label">Data Reduction</div>
+                    </div>
+                    
+                    <div class="metric-item">
+                        <div class="metric-value">3x</div>
+                        <div class="metric-label">Faster Navigation</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Accessibility Features -->
+            <div class="accessibility-features">
+                <h3 class="features-title">
+                    <i class="material-icons">accessibility</i>
+                    Accessibility Features
+                </h3>
+                
+                <div class="features-list">
+                    <div class="feature-item">
+                        <i class="material-icons feature-icon">keyboard</i>
+                        <div class="feature-text">
+                            <div class="feature-name">Full Keyboard Navigation</div>
+                            <div class="feature-desc">Navigate the entire site using only keyboard shortcuts</div>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <i class="material-icons feature-icon">text_fields</i>
+                        <div class="feature-text">
+                            <div class="feature-name">Adjustable Text Size</div>
+                            <div class="feature-desc">Increase or decrease text size for better readability</div>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <i class="material-icons feature-icon">contrast</i>
+                        <div class="feature-text">
+                            <div class="feature-name">High Contrast Mode</div>
+                            <div class="feature-desc">Enhanced contrast for improved visibility</div>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <i class="material-icons feature-icon">record_voice_over</i>
+                        <div class="feature-text">
+                            <div class="feature-name">Screen Reader Support</div>
+                            <div class="feature-desc">Optimized for screen readers with proper ARIA labels</div>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <i class="material-icons feature-icon">description</i>
+                        <div class="feature-text">
+                            <div class="feature-name">Alt Text for Images</div>
+                            <div class="feature-desc">Descriptive text for all images and visual content</div>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <i class="material-icons feature-icon">color_lens</i>
+                        <div class="feature-text">
+                            <div class="feature-name">Color Blind Friendly</div>
+                            <div class="feature-desc">Design considers all forms of color vision deficiency</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Print Options -->
+            <div class="print-section">
+                <h3 class="print-title">
+                    <i class="material-icons">print</i>
+                    Print-Friendly Options
+                </h3>
+                
+                <div class="print-options">
+                    <div class="print-option" onclick="printCheatsheet('excel')">
+                        <i class="material-icons print-option-icon">grid_on</i>
+                        <div class="print-option-title">Excel Cheatsheet</div>
+                        <div class="print-option-desc">Print optimized Excel formulas and shortcuts</div>
+                    </div>
+                    
+                    <div class="print-option" onclick="printCheatsheet('word')">
+                        <i class="material-icons print-option-icon">description</i>
+                        <div class="print-option-title">Word Cheatsheet</div>
+                        <div class="print-option-desc">Print optimized Word formatting tips</div>
+                    </div>
+                    
+                    <div class="print-option" onclick="printCheatsheet('photoshop')">
+                        <i class="material-icons print-option-icon">photo</i>
+                        <div class="print-option-title">Photoshop Cheatsheet</div>
+                        <div class="print-option-desc">Print optimized Photoshop tools and shortcuts</div>
+                    </div>
+                    
+                    <div class="print-option" onclick="printAllCheatsheets()">
+                        <i class="material-icons print-option-icon">collections</i>
+                        <div class="print-option-title">All Cheatsheets</div>
+                        <div class="print-option-desc">Print all application cheatsheets in one document</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Features -->
+            <div class="mobile-features">
+                <h3 class="mobile-title">
+                    <i class="material-icons">smartphone</i>
+                    Mobile Enhancements
+                </h3>
+                
+                <div class="mobile-grid">
+                    <div class="mobile-item">
+                        <i class="material-icons mobile-icon">touch_app</i>
+                        <div class="mobile-name">Touch-Optimized Interface</div>
+                        <div class="mobile-desc">Larger touch targets and swipe gestures</div>
+                    </div>
+                    
+                    <div class="mobile-item">
+                        <i class="material-icons mobile-icon">offline_bolt</i>
+                        <div class="mobile-name">Offline Mode</div>
+                        <div class="mobile-desc">Access saved content without internet</div>
+                    </div>
+                    
+                    <div class="mobile-item">
+                        <i class="material-icons mobile-icon">bookmark</i>
+                        <div class="mobile-name">Quick Reference Mode</div>
+                        <div class="mobile-desc">Condensed view for on-the-go reference</div>
+                    </div>
+                    
+                    <div class="mobile-item">
+                        <i class="material-icons mobile-icon">gesture</i>
+                        <div class="mobile-name">Gesture Controls</div>
+                        <div class="mobile-desc">Navigate with intuitive swipe gestures</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Video Tutorials</a></li>
+                        <li><a href="#">Downloadable PDFs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contribute</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 Application Cheatsheet Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Print cheatsheet function
+        function printCheatsheet(app) {
+            // In a real implementation, this would open a print-friendly version of the specific cheatsheet
+            window.print();
+        }
+        
+        // Print all cheatsheets function
+        function printAllCheatsheets() {
+            // In a real implementation, this would open a print-friendly version with all cheatsheets
+            window.print();
+        }
+        
+        // Performance monitoring
+        window.addEventListener('load', function() {
+            // Simulate performance metrics
+            setTimeout(function() {
+                const loadTimeElement = document.querySelector('.metric-value');
+                if (loadTimeElement) {
+                    loadTimeElement.textContent = '1.2s';
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
