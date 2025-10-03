@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Expansion - Application Cheatsheet Hub</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --light-text: #6c757d;
+            --border-radius: 12px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --excel-color: #217346;
+            --word-color: #2b579a;
+            --powerpoint-color: #d24726;
+            --photoshop-color: #31a5ff;
+            --illustrator-color: #ff7c00;
+            --premiere-color: #9999ff;
+            --aftereffects-color: #9999ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--box-shadow);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            justify-content: center;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            position: sticky;
+            top: 70px;
+            z-index: 90;
+        }
+
+        .tab-button {
+            padding: 1rem 2rem;
+            background: none;
+            border: none;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--light-text);
+            cursor: pointer;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .tab-button:hover {
+            color: var(--secondary-color);
+        }
+
+        .tab-button.active {
+            color: var(--secondary-color);
+        }
+
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 3rem 0;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        /* Version Cards */
+        .version-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .version-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .version-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #f1f1f1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .card-subtitle {
+            font-size: 0.9rem;
+            color: var(--light-text);
+            margin-bottom: 1rem;
+        }
+
+        .card-description {
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .feature-list {
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-icon {
+            color: var(--secondary-color);
+            margin-right: 0.8rem;
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        .feature-text {
+            flex: 1;
+        }
+
+        .feature-name {
+            font-weight: 500;
+            margin-bottom: 0.2rem;
+        }
+
+        .feature-desc {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        /* Industry Cards */
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .industry-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .industry-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .industry-header {
+            padding: 1.5rem;
+            background-color: #f9f9f9;
+            border-bottom: 1px solid #eee;
+        }
+
+        .industry-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .industry-title i {
+            margin-right: 0.8rem;
+            color: var(--secondary-color);
+        }
+
+        .industry-content {
+            padding: 1.5rem;
+        }
+
+        .industry-description {
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .app-examples {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .app-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: white;
+        }
+
+        .excel-app {
+            background-color: var(--excel-color);
+        }
+
+        .word-app {
+            background-color: var(--word-color);
+        }
+
+        .powerpoint-app {
+            background-color: var(--powerpoint-color);
+        }
+
+        .photoshop-app {
+            background-color: var(--photoshop-color);
+        }
+
+        .illustrator-app {
+            background-color: var(--illustrator-color);
+        }
+
+        .premiere-app {
+            background-color: var(--premiere-color);
+        }
+
+        .aftereffects-app {
+            background-color: var(--aftereffects-color);
+        }
+
+        .use-case-list {
+            margin-top: 1rem;
+        }
+
+        .use-case-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.8rem;
+        }
+
+        .use-case-icon {
+            color: var(--secondary-color);
+            margin-right: 0.8rem;
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        .use-case-text {
+            flex: 1;
+        }
+
+        .use-case-name {
+            font-weight: 500;
+            margin-bottom: 0.2rem;
+        }
+
+        .use-case-desc {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        /* Tutorial Cards */
+        .tutorial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .tutorial-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .tutorial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .tutorial-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .tutorial-content {
+            padding: 1.5rem;
+        }
+
+        .tutorial-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .tutorial-description {
+            margin-bottom: 1rem;
+            color: var(--light-text);
+        }
+
+        .tutorial-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        .tutorial-app {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: white;
+        }
+
+        /* Button Styles */
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .btn i {
+            margin-right: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #2980b9;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .tab-nav {
+                flex-wrap: wrap;
+            }
+
+            .tab-button {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="material-icons">school</i>
+                <a href="index.html" style="color: white; text-decoration: none;">Application Cheatsheet Hub</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="excel.html">Excel</a></li>
+                    <li><a href="word.html">Word</a></li>
+                    <li><a href="powerpoint.html">PowerPoint</a></li>
+                    <li><a href="photoshop.html">Photoshop</a></li>
+                    <li><a href="illustrator.html">Illustrator</a></li>
+                    <li><a href="premiere.html">Premiere Pro</a></li>
+                    <li><a href="aftereffects.html">After Effects</a></li>
+                    <li><a href="interactive.html">Interactive Testing</a></li>
+                    <li><a href="account.html">My Account</a></li>
+                    <li><a href="search.html">Advanced Search</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="personalization.html">Personalization</a></li>
+                    <li><a href="performance.html">Performance</a></li>
+                    <li><a href="expansion.html" class="active">Content Expansion</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Content Expansion</h1>
+            <p>Explore version-specific features and industry-specific examples for your favorite applications</p>
+        </div>
+    </section>
+
+    <!-- Tab Navigation -->
+    <div class="tab-nav">
+        <button class="tab-button active" onclick="showTab('versions')">Version-Specific</button>
+        <button class="tab-button" onclick="showTab('industries')">Industry-Specific</button>
+        <button class="tab-button" onclick="showTab('tutorials')">Advanced Tutorials</button>
+    </div>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="container">
+            <!-- Version-Specific Tab -->
+            <div id="versions" class="tab-content active">
+                <h2 class="section-title">Version-Specific Features</h2>
+                
+                <div class="version-grid">
+                    <div class="version-card">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="material-icons excel-icon">grid_on</i>
+                            </div>
+                            <h3 class="card-title">Excel 365</h3>
+                        </div>
+                        <p class="card-subtitle">Latest features in Microsoft 365 subscription</p>
+                        <p class="card-description">Excel 365 continuously receives new features that enhance data analysis and visualization capabilities.</p>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <i class="material-icons feature-icon">new_releases</i>
+                                <div class="feature-text">
+                                    <div class="feature-name">Dynamic Arrays</div>
+                                    <div class="feature-desc">New functions like FILTER, SORT, and UNIQUE that automatically spill results</div>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <i class="material-icons feature-icon">new_releases</i>
+                                <div class="feature-text">
+                                    <div class="feature-name">XLOOKUP Function</div>
+                                    <div class="feature-desc">Modern replacement for VLOOKUP with more flexibility and power</div>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <i class="material-icons feature-icon">new_releases</i>
+                                <div class="feature-text">
+                                    <div class="feature-name">Power Query Integration</div>
+                                    <div class="feature-desc">Enhanced data transformation capabilities directly in the ribbon</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="version-card">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="material-icons photoshop-icon">photo</i>
+                            </div>
+                            <h3 class="card-title">Photoshop 2023</h3>
+                        </div>
+                        <p class="card-subtitle">Latest features in Adobe Photoshop 2023</p>
+                        <p class="card-description">Photoshop 2023 introduces AI-powered features and enhanced workflows for creative professionals.</p>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <i class="material-icons feature-icon">new_releases</i>
+                                <div class="feature-text">
+                                    <div class="feature-name">Generative Fill</div>
+                                    <div class="feature-desc">AI-powered tool to add, remove, or expand content with simple text prompts</div>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <i class="material-icons feature-icon">new_releases</i>
+                                <div class="feature-text">
+                                    <div class="feature-name">Remove Tool</div>
+                                    <div class="feature-desc">AI-powered tool to remove unwanted objects with a single brush stroke</div>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <i class="material-icons feature-icon">new_releases</i>
+                                <div class="feature-text">
+                                    <div class="feature-name">Contextual Task Bar</div>
+                                    <div class="feature-desc">Dynamic toolbar that changes based on your current selection</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="version-card">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="material-icons premiere-icon">movie</i>
+                            </div>
+                            <h3 class="card-title">Premiere Pro 2023</h3>
+                        </div>
+                        <p class="card-subtitle">Latest features in Adobe Premiere Pro 2023</p>
+                        <p class="card-description">Premiere Pro 2023 brings significant performance improvements and AI-powered editing features.</p>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <i class="material-icons feature-icon">new_releases</i>
+                                <div class="feature-text">
+                                    <div class="feature-name">Remix Tool</div>
+                                    <div class="feature-desc">AI-powered tool to automatically retime music to match video length</div>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <i class="material-icons feature-icon">new_releases</i>
+                                <div class="feature-text">
+                                    <div class="feature-name">Text-Based Editing</div>
+                                    <div class="feature-desc">Edit video by searching for and cutting specific words in transcripts</div>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <i class="material-icons feature-icon">new_releases</i>
+                                <div class="feature-text">
+                                    <div class="feature-name">Automatic Tone Mapping</div>
+                                    <div class="feature-desc">HDR to SDR conversion with improved color accuracy</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Industry-Specific Tab -->
+            <div id="industries" class="tab-content">
+                <h2 class="section-title">Industry-Specific Examples</h2>
+                
+                <div class="industry-grid">
+                    <div class="industry-card">
+                        <div class="industry-header">
+                            <h3 class="industry-title">
+                                <i class="material-icons">account_balance</i>
+                                Finance & Accounting
+                            </h3>
+                        </div>
+                        <div class="industry-content">
+                            <p class="industry-description">Specialized workflows and techniques for financial professionals using Excel and other tools.</p>
+                            
+                            <div class="app-examples">
+                                <span class="app-tag excel-app">Excel</span>
+                                <span class="app-tag word-app">Word</span>
+                                <span class="app-tag powerpoint-app">PowerPoint</span>
+                            </div>
+                            
+                            <div class="use-case-list">
+                                <div class="use-case-item">
+                                    <i class="material-icons use-case-icon">trending_up</i>
+                                    <div class="use-case-text">
+                                        <div class="use-case-name">Financial Modeling</div>
+                                        <div class="use-case-desc">Advanced Excel techniques for building financial models and forecasts</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="use-case-item">
+                                    <i class="material-icons use-case-icon">assessment</i>
+                                    <div class="use-case-text">
+                                        <div class="use-case-name">Data Analysis</div>
+                                        <div class="use-case-desc">Pivot tables and Power Query for financial data analysis</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="use-case-item">
+                                    <i class="material-icons use-case-icon">description</i>
+                                    <div class="use-case-text">
+                                        <div class="use-case-name">Report Generation</div>
+                                        <div class="use-case-desc">Automated report creation with Excel and Word integration</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="industry-card">
+                        <div class="industry-header">
+                            <h3 class="industry-title">
+                                <i class="material-icons">brush</i>
+                                Graphic Design
+                            </h3>
+                        </div>
+                        <div class="industry-content">
+                            <p class="industry-description">Creative workflows and techniques for graphic designers using Adobe Creative Cloud applications.</p>
+                            
+                            <div class="app-examples">
+                                <span class="app-tag photoshop-app">Photoshop</span>
+                                <span class="app-tag illustrator-app">Illustrator</span>
+                                <span class="app-tag aftereffects-app">After Effects</span>
+                            </div>
+                            
+                            <div class="use-case-list">
+                                <div class="use-case-item">
+                                    <i class="material-icons use-case-icon">palette</i>
+                                    <div class="use-case-text">
+                                        <div class="use-case-name">Brand Identity Design</div>
+                                        <div class="use-case-desc">Creating consistent brand elements across Illustrator and Photoshop</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="use-case-item">
+                                    <i class="material-icons use-case-icon">style</i>
+                                    <div class="use-case-text">
+                                        <div class="use-case-name">Digital Illustration</div>
+                                        <div class="use-case-desc">Advanced illustration techniques with custom brushes and effects</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="use-case-item">
+                                    <i class="material-icons use-case-icon">animation</i>
+                                    <div class="use-case-text">
+                                        <div class="use-case-name">Motion Graphics</div>
+                                        <div class="use-case-desc">Creating animated graphics with Illustrator and After Effects</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="industry-card">
+                        <div class="industry-header">
+                            <h3 class="industry-title">
+                                <i class="material-icons">movie</i>
+                                Video Production
+                            </h3>
+                        </div>
+                        <div class="industry-content">
+                            <p class="industry-description">Professional workflows for video editors and content creators using Adobe video tools.</p>
+                            
+                            <div class="app-examples">
+                                <span class="app-tag premiere-app">Premiere Pro</span>
+                                <span class="app-tag aftereffects-app">After Effects</span>
+                                <span class="app-tag photoshop-app">Photoshop</span>
+                            </div>
+                            
+                            <div class="use-case-list">
+                                <div class="use-case-item">
+                                    <i class="material-icons use-case-icon">content_cut</i>
+                                    <div class="use-case-text">
+                                        <div class="use-case-name">Multi-Camera Editing</div>
+                                        <div class="use-case-desc">Synchronizing and editing footage from multiple camera angles</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="use-case-item">
+                                    <i class="material-icons use-case-icon">color_lens</i>
+                                    <div class="use-case-text">
+                                        <div class="use-case-name">Color Grading</div>
+                                        <div class="use-case-desc">Professional color correction and grading techniques</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="use-case-item">
+                                    <i class="material-icons use-case-icon">motion_photos_on</i>
+                                    <div class="use-case-text">
+                                        <div class="use-case-name">Visual Effects</div>
+                                        <div class="use-case-desc">Creating and integrating visual effects with After Effects</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="industry-card">
+                        <div class="industry-header">
+                            <h3 class="industry-title">
+                                <i class="material-icons">school</i>
+                                Education & Training
+                            </h3>
+                        </div>
+                        <div class="industry-content">
+                            <p class="industry-description">Specialized techniques for educators and trainers creating educational content.</p>
+                            
+                            <div class="app-examples">
+                                <span class="app-tag powerpoint-app">PowerPoint</span>
+                                <span class="app-tag word-app">Word</span>
+                                <span class="app-tag excel-app">Excel</span>
+                            </div>
+                            
+                            <div class="use-case-list">
+                                <div class="use-case-item">
+                                    <i class="material-icons use-case-icon">slideshow</i>
+                                    <div class="use-case-text">
+                                        <div class="use-case-name">Interactive Presentations</div>
+                                        <div class="use-case-desc">Creating engaging educational presentations with PowerPoint</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="use-case-item">
+                                    <i class="material-icons use-case-icon">assessment</i>
+                                    <div class="use-case-text">
+                                        <div class="use-case-name">Grade Tracking</div>
+                                        <div class="use-case-desc">Excel templates for tracking student progress and grades</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="use-case-item">
+                                    <i class="material-icons use-case-icon">description</i>
+                                    <div class="use-case-text">
+                                        <div class="use-case-name">Educational Materials</div>
+                                        <div class="use-case-desc">Creating worksheets and handouts with Word and Excel</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advanced Tutorials Tab -->
+            <div id="tutorials" class="tab-content">
+                <h2 class="section-title">Advanced Tutorials</h2>
+                
+                <div class="tutorial-grid">
+                    <div class="tutorial-card">
+                        <img src="https://sfile.chatglm.cn/images-ppt/b76f78686e98.png" alt="Advanced Excel Tutorial" class="tutorial-image">
+                        <div class="tutorial-content">
+                            <h3 class="tutorial-title">Advanced Financial Modeling in Excel</h3>
+                            <p class="tutorial-description">Build complex financial models with advanced Excel techniques including scenario analysis and sensitivity testing.</p>
+                            <div class="tutorial-meta">
+                                <span class="tutorial-app excel-app">Excel</span>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tutorial-card">
+                        <img src="https://sfile.chatglm.cn/images-ppt/08eac31e944d.jpg" alt="Photoshop Tutorial" class="tutorial-image">
+                        <div class="tutorial-content">
+                            <h3 class="tutorial-title">Professional Photo Retouching Workflow</h3>
+                            <p class="tutorial-description">Master the complete photo retouching workflow from basic corrections to advanced frequency separation techniques.</p>
+                            <div class="tutorial-meta">
+                                <span class="tutorial-app photoshop-app">Photoshop</span>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tutorial-card">
+                        <img src="https://sfile.chatglm.cn/images-ppt/2030c241423b.jpg" alt="Illustrator Tutorial" class="tutorial-image">
+                        <div class="tutorial-content">
+                            <h3 class="tutorial-title">Creating Complex Vector Illustrations</h3>
+                            <p class="tutorial-description">Learn advanced Illustrator techniques for creating detailed vector illustrations with custom brushes and effects.</p>
+                            <div class="tutorial-meta">
+                                <span class="tutorial-app illustrator-app">Illustrator</span>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tutorial-card">
+                        <img src="https://sfile.chatglm.cn/images-ppt/3b9bebb1f9e7.jpg" alt="Premiere Pro Tutorial" class="tutorial-image">
+                        <div class="tutorial-content">
+                            <h3 class="tutorial-title">Professional Color Grading in Premiere Pro</h3>
+                            <p class="tutorial-description">Master the art of color grading with Lumetri Color panel and advanced techniques for cinematic looks.</p>
+                            <div class="tutorial-meta">
+                                <span class="tutorial-app premiere-app">Premiere Pro</span>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tutorial-card">
+                        <img src="https://sfile.chatglm.cn/images-ppt/2efa759aa680.jpg" alt="After Effects Tutorial" class="tutorial-image">
+                        <div class="tutorial-content">
+                            <h3 class="tutorial-title">Advanced Motion Graphics with Expressions</h3>
+                            <p class="tutorial-description">Create complex animations with JavaScript expressions and advanced After Effects techniques.</p>
+                            <div class="tutorial-meta">
+                                <span class="tutorial-app aftereffects-app">After Effects</span>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tutorial-card">
+                        <img src="https://sfile.chatglm.cn/images-ppt/771bdf3c2d06.jpg" alt="PowerPoint Tutorial" class="tutorial-image">
+                        <div class="tutorial-content">
+                            <h3 class="tutorial-title">Interactive Presentations with PowerPoint</h3>
+                            <p class="tutorial-description">Create engaging interactive presentations with advanced animations, triggers, and multimedia integration.</p>
+                            <div class="tutorial-meta">
+                                <span class="tutorial-app powerpoint-app">PowerPoint</span>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Video Tutorials</a></li>
+                        <li><a href="#">Downloadable PDFs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contribute</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 Application Cheatsheet Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Show tab content
+        function showTab(tabName) {
+            // Hide all tab content
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tab buttons
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show the selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to the clicked tab button
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
