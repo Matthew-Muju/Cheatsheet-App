@@ -355,3 +355,654 @@
         .smartart-title {
             font-size: 1.5rem;
             font-weight: 7
+        .slide-master-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .slide-master-description {
+            font-size: 1rem;
+            color: var(--light-text);
+            margin-bottom: 1.5rem;
+        }
+
+        .slide-master-steps {
+            margin-top: 1.5rem;
+        }
+
+        .slide-master-step {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+
+        .step-number {
+            background-color: var(--powerpoint-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            flex: 1;
+        }
+
+        /* Keyboard Shortcuts */
+        .shortcut-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        .shortcut-table th {
+            background-color: var(--powerpoint-color);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .shortcut-table td {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .shortcut-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .shortcut-table tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .shortcut-key {
+            font-family: 'Source Code Pro', monospace;
+            background-color: #f1f1f1;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        /* Tutorial Cards */
+        .tutorial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tutorial-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .tutorial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .tutorial-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .tutorial-content {
+            padding: 1.5rem;
+        }
+
+        .tutorial-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .tutorial-description {
+            margin-bottom: 1rem;
+        }
+
+        .tutorial-steps {
+            margin-top: 1rem;
+        }
+
+        .tutorial-step {
+            display: flex;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-number {
+            background-color: var(--powerpoint-color);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            flex: 1;
+        }
+
+        /* Presenter View */
+        .presenter-view-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+
+        .presenter-view-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .presenter-view-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .presenter-view-description {
+            font-size: 1rem;
+            color: var(--light-text);
+            margin-bottom: 1.5rem;
+        }
+
+        .presenter-view-steps {
+            margin-top: 1.5rem;
+        }
+
+        .presenter-view-step {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+
+        .step-number {
+            background-color: var(--powerpoint-color);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            flex: 1;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem;
+            }
+
+            .app-title {
+                font-size: 2rem;
+            }
+
+            .tab-nav {
+                flex-wrap: wrap;
+            }
+
+            .tab-button {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="material-icons">school</i>
+                <a href="index.html" style="color: white; text-decoration: none;">Application Cheatsheet Hub</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="excel.html">Excel</a></li>
+                    <li><a href="word.html">Word</a></li>
+                    <li><a href="powerpoint.html" class="active">PowerPoint</a></li>
+                    <li><a href="photoshop.html">Photoshop</a></li>
+                    <li><a href="illustrator.html">Illustrator</a></li>
+                    <li><a href="premiere.html">Premiere Pro</a></li>
+                    <li><a href="aftereffects.html">After Effects</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- App Header Section -->
+    <section class="app-header">
+        <div class="container">
+            <i class="material-icons app-icon">slideshow</i>
+            <h1 class="app-title">Microsoft PowerPoint Cheatsheet</h1>
+            <p class="app-description">Master PowerPoint with essential presentation tips, keyboard shortcuts, and step-by-step tutorials</p>
+        </div>
+    </section>
+
+    <!-- Tab Navigation -->
+    <div class="tab-nav">
+        <button class="tab-button active" onclick="showTab('presentation')">Presentation Tips</button>
+        <button class="tab-button" onclick="showTab('shortcuts')">Keyboard Shortcuts</button>
+        <button class="tab-button" onclick="showTab('tutorials')">Tutorials</button>
+    </div>
+
+    <!-- Content Container -->
+    <div class="container">
+        <!-- Presentation Tips Section -->
+        <section id="presentation" class="content-section active">
+            <h2 class="section-title"><i class="material-icons">lightbulb</i> Essential Presentation Tips</h2>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h3 class="tip-name"><i class="material-icons">format_paint</i> Slide Design</h3>
+                    <p class="tip-description">Create visually appealing slides with consistent design elements.</p>
+                    <div class="tip-example">
+                        <div class="tip-example-title">Best practices:</div>
+                        <p>Use consistent fonts, limit text to 6 lines per slide, and apply the 10-20-30 rule (10 slides, 20 minutes, 30pt font)</p>
+                    </div>
+                </div>
+                
+                <div class="tip-card">
+                    <h3 class="tip-name"><i class="material-icons">animation</i> Animations & Transitions</h3>
+                    <p class="sub-title">Add movement to your presentation to engage your audience.</p>
+                    <div class="tip-example">
+                        <div class="tip-example-title">How to use:</div>
+                        <p>Select object > Animations > Choose animation effect</p>
+                        <p>Use subtle animations that enhance rather than distract</p>
+                    </div>
+                </div>
+                
+                <div class="tip-card">
+                    <h3 class="tip-name"><i class="material-icons">insert_chart</i> Charts & Graphs</h3>
+                    <p class="tip-description">Visualize data effectively with charts and graphs.</p>
+                    <div class="tip-example">
+                        <div class="tip-example-title">How to use:</div>
+                        <p>Insert > Chart > Select chart type</p>
+                        <p>Keep charts simple and label all elements clearly</p>
+                    </div>
+                </div>
+                
+                <div class="tip-card">
+                    <h3 class="tip-name"><i class="material-icons">view_carousel</i> Slide Master</h3>
+                    <p class="tip-description">Create consistent layouts and formatting across all slides.</p>
+                    <div class="tip-example">
+                        <div class="tip-example-title">How to use:</div>
+                        <p>View > Slide Master > Edit the master slide to apply changes to all slides</p>
+                    </div>
+                </div>
+                
+                <div class="tip-card">
+                    <h3 class="tip-name"><i class="material-icons">speaker_notes</i> Speaker Notes</h3>
+                    <p class="tip-description">Add notes to help you remember key points during presentation.</p>
+                    <div class="tip-example">
+                        <div class="tip-example-title">How to use:</div>
+                        <p>Click in the Notes pane below each slide to add speaker notes</p>
+                        <p>Use Presenter View to see notes while presenting</p>
+                    </div>
+                </div>
+                
+                <div class="tip-card">
+                    <h3 class="tip-name"><i class="material-icons">photo_size_select_actual</i> Images & Media</h3>
+                    <p class="tip-description">Enhance your presentation with relevant images and media.</p>
+                    <div class="tip-example">
+                        <div class="tip-example-title">How to use:</div>
+                        <p>Insert > Pictures or Online Pictures</p>
+                        <p>Use high-quality images that support your message</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Keyboard Shortcuts Section -->
+        <section id="shortcuts" class="content-section">
+            <h2 class="section-title"><i class="material-icons">keyboard</i> Keyboard Shortcuts</h2>
+            
+            <h3 style="margin-bottom: 1rem; color: var(--powerpoint-color);">Navigation Shortcuts</h3>
+            <table class="shortcut-table">
+                <thead>
+                    <tr>
+                        <th>Shortcut</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="shortcut-key">F5</span></td>
+                        <td>Start presentation from beginning</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Shift</span> + <span class="shortcut-key">F5</span></td>
+                        <td>Start presentation from current slide</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Esc</span></td>
+                        <td>Exit presentation mode</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Page Down</span> / <span class="shortcut-key">Space</span></td>
+                        <td>Next slide or animation</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Page Up</span></td>
+                        <td>Previous slide</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">B</span></td>
+                        <td>Black screen during presentation</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3 style="margin-bottom: 1rem; color: var(--powerpoint-color);">Slide Management Shortcuts</h3>
+            <table class="shortcut-table">
+                <thead>
+                    <tr>
+                        <th>Shortcut</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">M</span></td>
+                        <td>Insert new slide</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">D</span></td>
+                        <td>Duplicate current slide</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">Shift</span> + <span class="shortcut-key">D</span></td>
+                        <td>Duplicate selected object</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Delete</span></td>
+                        <td>Delete selected slide</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">K</span></td>
+                        <td>Insert hyperlink</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">Shift</span> + <span class="shortcut-key">D</span></td>
+                        <td>Duplicate selected object</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">F6</span></td>
+                        <td>Cycle between panes</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3 style="margin-bottom: 1rem; color: var(--powerpoint-color);">Formatting Shortcuts</h3>
+            <table class="shortcut-table">
+                <thead>
+                    <tr>
+                        <th>Shortcut</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">B</span></td>
+                        <td>Apply or remove bold formatting</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">I</span></td>
+                        <td>Apply or remove italic formatting</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">U</span></td>
+                        <td>Apply or remove underline</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">E</span></td>
+                        <td>Center align text</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">L</span></td>
+                        <td>Left align text</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">R</span></td>
+                        <td>Right align text</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">J</span></td>
+                        <td>Justify text</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Tutorials Section -->
+        <section id="tutorials" class="content-section">
+            <h2 class="section-title"><i class="material-icons">school</i> Popular Tutorials</h2>
+            
+            <div class="tutorial-grid">
+                <div class="tutorial-card">
+                    <img src="https://sfile.chatglm.cn/images-ppt/ae35c68773bc.jpg" alt="Slide Master Tutorial" class="tutorial-image">
+                    <div class="tutorial-content">
+                        <h3 class="tutorial-title">Creating Custom Slide Masters</h3>
+                        <p class="tutorial-description">Design professional templates with consistent branding and layout.</p>
+                        <div class="tutorial-steps">
+                            <div class="tutorial-step">
+                                <div class="step-number">1</div>
+                                <div>Go to View > Slide Master</div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-number">2</div>
+                                <div>Edit the top master slide to affect all slides</div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-number">3</div>
+                                <div>Close Master View to apply changes</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tutorial-card">
+                    <img src="https://sfile.chatglm.cn/images-ppt/2efa759aa680.jpg" alt="SmartArt Tutorial" class="tutorial-image">
+                    <div class="tutorial-content">
+                        <h3 class="tutorial-title">Creating Effective SmartArt Graphics</h3>
+                        <p class="tutorial-description">Transform text into professional diagrams and visual representations.</p>
+                        <div class="tutorial-steps">
+                            <div class="tutorial-step">
+                                <div class="step-number">1</div>
+                                <div>Select text or go to Insert > SmartArt</div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-number">2</div>
+                                <div>Choose a SmartArt graphic type</div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-number">3</div>
+                                <div>Enter your text in the text pane</div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-number">4</div>
+                                <div>Customize colors and styles in SmartArt Design tab</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tutorial-card">
+                    <img src="https://sfile.chatglm.cn/images-ppt/d00496959e66.jpg" alt="Presenter View Tutorial" class="tutorial-image">
+                    <div class="tutorial-content">
+                        <h3 class="tutorial-title">Using Presenter View Effectively</h3>
+                        <p class="tutorial-description">Master the dual-screen view for professional presentations.</p>
+                        <div class="tutorial-steps">
+                            <div class="tutorial-step">
+                                <div class="step-number">1</div>
+                                <div>Connect to a second display or projector</div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-number">2</div>
+                                <div>Press F5 to start presentation</div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-number">3</div>
+                                <div>Use Presenter View to see notes and upcoming slides</div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-number">4</div>
+                                <div>Navigate with arrow keys or presenter remote</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Video Tutorials</a></li>
+                        <li><a href="#">Downloadable PDFs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-section">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Contribute</a></li>
+                        </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 Application Cheatsheet Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all content sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all tab buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show the selected content section
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to the clicked tab button
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
