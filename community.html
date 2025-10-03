@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Contributions - Application Cheatsheet Hub</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --light-text: #6c757d;
+            --border-radius: 12px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --excel-color: #217346;
+            --word-color: #2b579a;
+            --powerpoint-color: #d24726;
+            --photoshop-color: #31a5ff;
+            --illustrator-color: #ff7c00;
+            --premiere-color: #9999ff;
+            --aftereffects-color: #9999ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--box-shadow);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-button {
+            background-color: white;
+            color: var(--primary-color);
+            border: none;
+            border-radius: 50px;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button i {
+            margin-right: 8px;
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            justify-content: center;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            position: sticky;
+            top: 70px;
+            z-index: 90;
+        }
+
+        .tab-button {
+            padding: 1rem 2rem;
+            background: none;
+            border: none;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--light-text);
+            cursor: pointer;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .tab-button:hover {
+            color: var(--secondary-color);
+        }
+
+        .tab-button.active {
+            color: var(--secondary-color);
+        }
+
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        /* Content Sections */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Contribution Form */
+        .contribution-form {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .btn i {
+            margin-right: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #2980b9;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        /* Contribution Cards */
+        .contributions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .contribution-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .contribution-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contribution-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .contribution-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .contribution-app {
+            display: flex;
+            align-items: center;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: white;
+        }
+
+        .excel-app {
+            background-color: var(--excel-color);
+        }
+
+        .word-app {
+            background-color: var(--word-color);
+        }
+
+        .powerpoint-app {
+            background-color: var(--powerpoint-color);
+        }
+
+        .photoshop-app {
+            background-color: var(--photoshop-color);
+        }
+
+        .illustrator-app {
+            background-color: var(--illustrator-color);
+        }
+
+        .premiere-app {
+            background-color: var(--premiere-color);
+        }
+
+        .aftereffects-app {
+            background-color: var(--aftereffects-color);
+        }
+
+        .contribution-author {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .author-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .author-name {
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .contribution-description {
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .contribution-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+        }
+
+        .rating-stars {
+            display: flex;
+            margin-right: 0.5rem;
+        }
+
+        .rating-star {
+            color: #ffc107;
+            font-size: 1rem;
+        }
+
+        .rating-value {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        .contribution-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .action-button {
+            background: none;
+            border: none;
+            color: var(--light-text);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .action-button:hover {
+            color: var(--secondary-color);
+        }
+
+        .action-button i {
+            font-size: 1.2rem;
+            margin-right: 0.3rem;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .filter-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .filter-title i {
+            margin-right: 8px;
+            color: var(--secondary-color);
+        }
+
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .filter-chip {
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-chip:hover {
+            background-color: #e9ecef;
+        }
+
+        .filter-chip.active {
+            background-color: var(--secondary-color);
+            color: white;
+            border-color: var(--secondary-color);
+        }
+
+        /* Top Contributors */
+        .top-contributors {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contributors-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .contributor {
+            display: flex;
+            align-items: center;
+            background-color: #f9f9f9;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .contributor:hover {
+            background-color: #f1f1f1;
+        }
+
+        .contributor-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.8rem;
+            color: var(--primary-color);
+        }
+
+        .contributor-info {
+            flex: 1;
+        }
+
+        .contributor-name {
+            font-weight: 500;
+            margin-bottom: 0.2rem;
+        }
+
+        .contributor-stats {
+            font-size: 0.8rem;
+            color: var(--light-text);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .form-row {
+                flex-direction: column;
+            }
+
+            .tab-nav {
+                flex-wrap: wrap;
+            }
+
+            .tab-button {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="material-icons">school</i>
+                <a href="index.html" style="color: white; text-decoration: none;">Application Cheatsheet Hub</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="excel.html">Excel</a></li>
+                    <li><a href="word.html">Word</a></li>
+                    <li><a href="powerpoint.html">PowerPoint</a></li>
+                    <li><a href="photoshop.html">Photoshop</a></li>
+                    <li><a href="illustrator.html">Illustrator</a></li>
+                    <li><a href="premiere.html">Premiere Pro</a></li>
+                    <li><a href="aftereffects.html">After Effects</a></li>
+                    <li><a href="interactive.html">Interactive Testing</a></li>
+                    <li><a href="account.html">My Account</a></li>
+                    <li><a href="search.html">Advanced Search</a></li>
+                    <li><a href="community.html" class="active">Community</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Community Contributions</h1>
+            <p>Share your knowledge and learn from others in our community of application experts</p>
+            <button class="cta-button" onclick="scrollToContributionForm()">
+                <i class="material-icons">add_circle</i>
+                Share Your Tip
+            </button>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="container">
+            <!-- Tab Navigation -->
+            <div class="tab-nav">
+                <button class="tab-button active" onclick="showTab('contributions')">Community Tips</button>
+                <button class="tab-button" onclick="showTab('submit')">Submit Contribution</button>
+                <button class="tab-button" onclick="showTab('top-contributors')">Top Contributors</button>
+            </div>
+
+            <!-- Community Tips Tab -->
+            <div id="contributions" class="tab-content active">
+                <h2 class="section-title">Community Tips & Tricks</h2>
+                
+                <!-- Filter Section -->
+                <div class="filter-section">
+                    <h3 class="filter-title"><i class="material-icons">filter_list</i> Filter by Application</h3>
+                    <div class="filter-options">
+                        <div class="filter-chip active" onclick="toggleFilter(this)">All</div>
+                        <div class="filter-chip" onclick="toggleFilter(this)">Excel</div>
+                        <div class="filter-chip" onclick="toggleFilter(this)">Word</div>
+                        <div class="filter-chip" onclick="toggleFilter(this)">PowerPoint</div>
+                        <div class="filter-chip" onclick="toggleFilter(this)">Photoshop</div>
+                        <div class="filter-chip" onclick="toggleFilter(this)">Illustrator</div>
+                        <div class="filter-chip" onclick="toggleFilter(this)">Premiere Pro</div>
+                        <div class="filter-chip" onclick="toggleFilter(this)">After Effects</div>
+                    </div>
+                </div>
+                
+                <!-- Contributions Grid -->
+                <div class="contributions-grid">
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <div>
+                                <h3 class="contribution-title">Quick Data Validation with Custom Rules</h3>
+                                <div class="contribution-app excel-app">Excel</div>
+                            </div>
+                        </div>
+                        <div class="contribution-author">
+                            <div class="author-avatar">
+                                <i class="material-icons">person</i>
+                            </div>
+                            <div class="author-name">Sarah Johnson</div>
+                        </div>
+                        <p class="contribution-description">Create custom data validation rules using formulas to ensure data integrity. For example, use =AND(ISNUMBER(A1), A1>0, A1<100) to validate that a cell contains a number between 0 and 100.</p>
+                        <div class="contribution-footer">
+                            <div class="rating">
+                                <div class="rating-stars">
+                                    <i class="material-icons rating-star">star</i>
+                                    <i class="material-icons rating-star">star</i>
+                                    <i class="material-icons rating-star">star</i>
+                                    <i class="material-icons rating-star">star</i>
+                                    <i class="material-icons rating-star">star_half</i>
+                                </div>
+                                <div class="rating-value">4.5 (23)</div>
+                            </div>
+                            <div class="contribution-actions">
+                                <button class="action-button">
+                                    <i class="material-icons">thumb_up</i>
+                                    45
+                                </button>
+                                <button class="action-button">
+                                    <i class="material-icons">bookmark_border</i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <div>
+                                <h3 class="contribution-title">Non-Destructive Editing with Adjustment Layers</h3>
+                                <div class="contribution-app photoshop-app">Photoshop</div>
+                            </div>
+                        </div>
+                        <div class="contribution-author">
+                            <div class="author-avatar">
+                                <i class="material-icons">person</i>
+                            </div>
+                            <div class="author-name">Michael Chen</div>
+                        </div>
+                        <p class="contribution-description">Always use adjustment layers instead of direct adjustments to maintain flexibility. Create a new adjustment layer by clicking the half-black/half-white circle at the bottom of the Layers panel.</p>
+                        <div class="contribution-footer">
+                            <div class="rating">
+                                <div class="rating-stars">
+                                    <i class="material-icons rating-star">star</i>
+                                    <i class="material-icons rating-star">star</i>
+                                    <i class="material-icons rating-star">star</i>
+                                    <i class="material-icons rating-star">star</i>
+                                    <i class="material-icons rating-star">star</i>
+                                </div>
+                                <div class="rating-value">5.0 (38)</div>
+                            </div>
+                            <div class="contribution-actions">
+                                <button class="action-button">
+                                    <i class="material-icons">thumb_up</i>
+                                    67
+                                </button>
+                                <button class="action-button">
+                                    <i class="material-icons">bookmark_border</i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <div>
+                                <h3 class="contribution-title">Dynamic Text with Data Merge in Illustrator</h3>
+                                <div class="contribution-app illustrator-app">Illustrator</div>
+                            </div>
+                        </div>
+                        <div class="contribution-author">
+                            <div class="author-avatar">
+                                <i class="material-icons">person</i>
+                            </div>
+                            <div class="author-name">Emily Rodriguez</div>
+                        </div>
+                        <p class="contribution-description">Use the Data Merge feature to create multiple versions of a design with different text or images. Prepare your data in a CSV file, then go to Window > Utilities > Data Merge to link your data source.</p>
+                        <div class="contribution-footer">
+                            <div class="rating">
+                                <div class="rating-stars">
+                                    <i class="material-icons rating-star">star</i>
+                                    <i class="material-icons rating-star">star</i>
+                                    <i class="material-icons rating-star">star</i>
+                                    <i class="material-icons rating-star">star</i>
+                                    <i class="material-icons rating-star">star_border</i>
+                                </div>
+                                <div class="rating-value">4.0 (15)</div>
+                            </div>
+                            <div class="contribution-actions">
+                                <button class="action-button">
+                                    <i class="material-icons">thumb_up</i>
+                                    32
+                                </button>
+                                <button class="action-button">
+                                    <i class="material-icons">bookmark_border</i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <div>
+                                <h3 class="contribution-title">Mastering the J and L Cuts in Video Editing</h3>
+                                <div class="contribution-app premiere-app">Premiere Pro</div>
+                            </div>
+                        </div>
+                        <div class="contribution-author">
+                            <div class="author-avatar">
+                                <i class="material-icons">person</i>
+                            </div>
+                            <div class="author-name">David Park</div>
+                        </div>
+                        <p class="contribution-description">J and L cuts are essential for smooth transitions. A J cut is when the audio of the next clip starts before the video, while an L cut is when the video of the next clip starts before the audio. Use these to create more natural flow between scenes.</p>
+                        <div class="contribution-footer">
+                            <div class="rating">
+                                <div class="rating-stars">
+                                    <i class="material-icons rating-star">star</i>
+                                    <i class="material-icons rating-star">star</i>
+                                    <i class="material-icons rating-star">star</i>
+                                    <i class="material-icons rating-star">star</i>
+                                    <i class="material-icons rating-star">star_half</i>
+                                </div>
+                                <div class="rating-value">4.7 (21)</div>
+                            </div>
+                            <div class="contribution-actions">
+                                <button class="action-button">
+                                    <i class="material-icons">thumb_up</i>
+                                    58
+                                </button>
+                                <button class="action-button">
+                                    <i class="material-icons">bookmark_border</i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <div>
+                                <h3 class="contribution-title">Efficient Mail Merge with Conditional Fields</h3>
+                                <div class="contribution-app word-app">Word</div>
+                            </div>
+                        </div>
+                        <div class="contribution-author">
+                            <div class="author-avatar">
+                                <i class="material-icons">person</i>
+                            </div>
+                            <div class="author-name">Lisa Thompson</div>
+                        </div>
+                        <p class="contribution-description">Use IF fields in your mail merge to include or exclude content based on conditions. For example: { IF { MERGEFIELD Country } = "USA" "State: { MERGEFIELD State }" "" } will only show the state field if the country is USA.</p>
+                        <div class="contribution-footer">
+                            <div class="rating">
+                                <div class="rating-stars">
+                                    <i class="material-icons rating-star">star</i>
+                                    <i class="material-icons rating-star">star</i>
+                                    <i class="material-icons rating-star">star</i>
+                                    <i class="material-icons rating-star">star</i>
+                                    <i class="material-icons rating-star">star_border</i>
+                                </div>
+                                <div class="rating-value">4.2 (18)</div>
+                            </div>
+                            <div class="contribution-actions">
+                                <button class="action-button">
+                                    <i class="material-icons">thumb_up</i>
+                                    41
+                                </button>
+                                <button class="action-button">
+                                    <i class="material-icons">bookmark_border</i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <div>
+                                <h3 class="contribution-title">Expression Controls for Dynamic Animations</h3>
+                                <div class="contribution-app aftereffects-app">After Effects</div>
+                            </div>
+                        </div>
+                        <div class="contribution-author">
+                            <div class="author-avatar">
+                                <i class="material-icons">person</i>
+                            </div>
+                            <div class="author-name">Alex Kumar</div>
+                        </div>
+                        <p class="contribution-description">Create expression controls (Layer > New > Expression Controls) to easily adjust multiple properties at once. Link other properties to these controls using the pick whip to create dynamic animations that can be quickly modified.</p>
+                        <div class="contribution-footer">
+                            <div class="rating">
+                                <div class="rating-stars">
+                                    <i class="material-icons rating-star">star</i>
+                                    <i class="material-icons rating-star">star</i>
+                                    <i class="material-icons rating-star">star</i>
+                                    <i class="material-icons rating-star">star</i>
+                                    <i class="material-icons rating-star">star</i>
+                                </div>
+                                <div class="rating-value">5.0 (27)</div>
+                            </div>
+                            <div class="contribution-actions">
+                                <button class="action-button">
+                                    <i class="material-icons">thumb_up</i>
+                                    72
+                                </button>
+                                <button class="action-button">
+                                    <i class="material-icons">bookmark_border</i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit Contribution Tab -->
+            <div id="submit" class="tab-content">
+                <h2 class="section-title">Share Your Knowledge</h2>
+                
+                <div class="contribution-form">
+                    <div class="form-group">
+                        <label class="form-label" for="title">Title</label>
+                        <input type="text" id="title" class="form-input" placeholder="Enter a clear, descriptive title for your tip">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="application">Application</label>
+                            <select id="application" class="form-select">
+                                <option value="">Select an application</option>
+                                <option value="excel">Excel</option>
+                                <option value="word">Word</option>
+                                <option value="powerpoint">PowerPoint</option>
+                                <option value="photoshop">Photoshop</option>
+                                <option value="illustrator">Illustrator</option>
+                                <option value="premiere">Premiere Pro</option>
+                                <option value="aftereffects">After Effects</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="category">Category</label>
+                            <select id="category" class="form-select">
+                                <option value="">Select a category</option>
+                                <option value="formulas">Formulas</option>
+                                <option value="shortcuts">Shortcuts</option>
+                                <option value="tutorials">Tutorials</option>
+                                <option value="tools">Tools</option>
+                                <option value="techniques">Techniques</option>
+                                <option value="workflows">Workflows</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="description">Description</label>
+                        <textarea id="description" class="form-textarea" placeholder="Explain your tip in detail. Include steps, examples, or screenshots if helpful."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="example">Example (Optional)</label>
+                        <textarea id="example" class="form-textarea" placeholder="Provide a specific example or code snippet to illustrate your tip."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="difficulty">Difficulty Level</label>
+                        <select id="difficulty" class="form-select">
+                            <option value="">Select difficulty level</option>
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="tags">Tags</label>
+                        <input type="text" id="tags" class="form-input" placeholder="Enter tags separated by commas (e.g., productivity, data analysis, photo editing)">
+                    </div>
+                    
+                    <div class="button-group">
+                        <button class="btn btn-secondary">
+                            <i class="material-icons">cancel</i>
+                            Cancel
+                        </button>
+                        <button class="btn btn-primary" onclick="submitContribution()">
+                            <i class="material-icons">send</i>
+                            Submit Contribution
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Top Contributors Tab -->
+            <div id="top-contributors" class="tab-content">
+                <h2 class="section-title">Top Contributors</h2>
+                
+                <div class="top-contributors">
+                    <h3 class="filter-title"><i class="material-icons">emoji_events</i> This Month's Top Contributors</h3>
+                    <div class="contributors-list">
+                        <div class="contributor">
+                            <div class="contributor-avatar">
+                                <i class="material-icons">person</i>
+                            </div>
+                            <div class="contributor-info">
+                                <div class="contributor-name">Michael Chen</div>
+                                <div class="contributor-stats">12 contributions • 245 upvotes</div>
+                            </div>
+                        </div>
+                        
+                        <div class="contributor">
+                            <div class="contributor-avatar">
+                                <i class="material-icons">person</i>
+                            </div>
+                            <div class="contributor-info">
+                                <div class="contributor-name">Alex Kumar</div>
+                                <div class="contributor-stats">8 contributions • 189 upvotes</div>
+                            </div>
+                        </div>
+                        
+                        <div class="contributor">
+                            <div class="contributor-avatar">
+                                <i class="material-icons">person</i>
+                            </div>
+                            <div class="contributor-info">
+                                <div class="contributor-name">Sarah Johnson</div>
+                                <div class="contributor-stats">7 contributions • 156 upvotes</div>
+                            </div>
+                        </div>
+                        
+                        <div class="contributor">
+                            <div class="contributor-avatar">
+                                <i class="material-icons">person</i>
+                            </div>
+                            <div class="contributor-info">
+                                <div class="contributor-name">David Park</div>
+                                <div class="contributor-stats">6 contributions • 142 upvotes</div>
+                            </div>
+                        </div>
+                        
+                        <div class="contributor">
+                            <div class="contributor-avatar">
+                                <i class="material-icons">person</i>
+                            </div>
+                            <div class="contributor-info">
+                                <div class="contributor-name">Emily Rodriguez</div>
+                                <div class="contributor-stats">5 contributions • 118 upvotes</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="top-contributors">
+                    <h3 class="filter-title"><i class="material-icons">military_tech</i> All-Time Top Contributors</h3>
+                    <div class="contributors-list">
+                        <div class="contributor">
+                            <div class="contributor-avatar">
+                                <i class="material-icons">person</i>
+                            </div>
+                            <div class="contributor-info">
+                                <div class="contributor-name">Michael Chen</div>
+                                <div class="contributor-stats">42 contributions • 892 upvotes</div>
+                            </div>
+                        </div>
+                        
+                        <div class="contributor">
+                            <div class="contributor-avatar">
+                                <i class="material-icons">person</i>
+                            </div>
+                            <div class="contributor-info">
+                                <div class="contributor-name">Sarah Johnson</div>
+                                <div class="contributor-stats">38 contributions • 756 upvotes</div>
+                            </div>
+                        </div>
+                        
+                        <div class="contributor">
+                            <div class="contributor-avatar">
+                                <i class="material-icons">person</i>
+                            </div>
+                            <div class="contributor-info">
+                                <div class="contributor-name">Alex Kumar</div>
+                                <div class="contributor-stats">31 contributions • 623 upvotes</div>
+                            </div>
+                        </div>
+                        
+                        <div class="contributor">
+                            <div class="contributor-avatar">
+                                <i class="material-icons">person</i>
+                            </div>
+                            <div class="contributor-info">
+                                <div class="contributor-name">David Park</div>
+                                <div class="contributor-stats">28 contributions • 541 upvotes</div>
+                            </div>
+                        </div>
+                        
+                        <div class="contributor">
+                            <div class="contributor-avatar">
+                                <i class="material-icons">person</i>
+                            </div>
+                            <div class="contributor-info">
+                                <div class="contributor-name">Lisa Thompson</div>
+                                <div class="contributor-stats">24 contributions • 487 upvotes</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Video Tutorials</a></li>
+                        <li><a href="#">Downloadable PDFs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contribute</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 Application Cheatsheet Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Show tab content
+        function showTab(tabName) {
+            // Hide all tab content
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tab buttons
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show the selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to the clicked tab button
+            event.target.classList.add('active');
+        }
+        
+        // Toggle filter selection
+        function toggleFilter(element) {
+            // If "All" is selected, deselect all others
+            if (element.textContent === 'All') {
+                const filterChips = document.querySelectorAll('.filter-chip');
+                filterChips.forEach(chip => {
+                    chip.classList.remove('active');
+                });
+                element.classList.add('active');
+            } else {
+                // Deselect "All" if another filter is selected
+                const allChip = document.querySelector('.filter-chip:first-child');
+                if (allChip && allChip.textContent === 'All') {
+                    allChip.classList.remove('active');
+                }
+                element.classList.toggle('active');
+            }
+        }
+        
+        // Scroll to contribution form
+        function scrollToContributionForm() {
+            // Switch to submit tab
+            const submitTab = document.querySelector('.tab-button:nth-child(2)');
+            submitTab.click();
+            
+            // Scroll to the form
+            const form = document.querySelector('.contribution-form');
+            if (form) {
+                form.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        
+        // Submit contribution
+        function submitContribution() {
+            // In a real implementation, this would submit the form data
+            const title = document.getElementById('title').value;
+            const application = document.getElementById('application').value;
+            const category = document.getElementById('category').value;
+            const description = document.getElementById('description').value;
+            
+            if (!title || !application || !category || !description) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Show success message
+            alert('Thank you for your contribution! It will be reviewed by our moderators before being published.');
+            
+            // Reset form
+            document.getElementById('title').value = '';
+            document.getElementById('application').value = '';
+            document.getElementById('category').value = '';
+            document.getElementById('description').value = '';
+            document.getElementById('example').value = '';
+            document.getElementById('difficulty').value = '';
+            document.getElementById('tags').value = '';
+        }
+    </script>
+</body>
+</html>
