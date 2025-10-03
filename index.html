@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Cheatsheet Hub</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --light-text: #6c757d;
+            --border-radius: 12px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --excel-color: #217346;
+            --word-color: #2b579a;
+            --powerpoint-color: #d24726;
+            --photoshop-color: #31a5ff;
+            --illustrator-color: #ff7c00;
+            --premiere-color: #9999ff;
+            --aftereffects-color: #9999ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--box-shadow);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 1rem 3rem 1rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .search-container button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--secondary-color);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* App Categories Section */
+        .app-categories {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        .category-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .category-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 2rem;
+            width: 100%;
+            max-width: 500px;
+            transition: var(--transition);
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .microsoft-icon {
+            background-color: #217346;
+        }
+
+        .adobe-icon {
+            background-color: #FF0000;
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+        }
+
+        .app-item {
+            background-color: var(--bg-color);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            transition: var(--transition);
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .app-item:hover {
+            background-color: #e9ecef;
+            transform: translateY(-3px);
+        }
+
+        .app-item i {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .excel-icon {
+            color: var(--excel-color);
+        }
+
+        .word-icon {
+            color: var(--word-color);
+        }
+
+        .powerpoint-icon {
+            color: var(--powerpoint-color);
+        }
+
+        .photoshop-icon {
+            color: var(--photoshop-color);
+        }
+
+        .illustrator-icon {
+            color: var(--illustrator-color);
+        }
+
+        .premiere-icon {
+            color: var(--premiere-color);
+        }
+
+        .aftereffects-icon {
+            color: var(--aftereffects-color);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 0;
+            background-color: #e9ecef;
+        }
+
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card i {
+            font-size: 3.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .feature-card p {
+            color: var(--light-text);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card .btn {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .feature-card .btn:hover {
+            background-color: #2980b9;
+        }
+
+        .feature-card .btn i {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .cta-container {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .cta-title {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-description {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-button {
+            background-color: white;
+            color: var(--primary-color);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button i {
+            margin-right: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .app-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="material-icons">school</i>
+                Application Cheatsheet Hub
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="excel.html">Excel</a></li>
+                    <li><a href="word.html">Word</a></li>
+                    <li><a href="powerpoint.html">PowerPoint</a></li>
+                    <li><a href="photoshop.html">Photoshop</a></li>
+                    <li><a href="illustrator.html">Illustrator</a></li>
+                    <li><a href="premiere.html">Premiere Pro</a></li>
+                    <li><a href="aftereffects.html">After Effects</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Master Your Favorite Applications</h1>
+            <p>Your comprehensive resource for formulas, shortcuts, and tutorials for Microsoft Office and Adobe Creative Cloud applications</p>
+            <div class="search-container">
+                <input type="text" placeholder="Search for formulas, shortcuts, or tutorials...">
+                <button><i class="material-icons">search</i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Categories Section -->
+    <section class="app-categories">
+        <div class="container">
+            <h2 class="section-title">Choose Your Application</h2>
+            
+            <!-- Microsoft Office Category -->
+            <div class="category-container">
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon microsoft-icon">
+                            <i class="material-icons">business</i>
+                        </div>
+                        <h3 class="category-title">Microsoft Office</h3>
+                    </div>
+                    <div class="app-grid">
+                        <a href="excel.html" class="app-item">
+                            <i class="material-icons excel-icon">grid_on</i>
+                            <span>Excel</span>
+                        </a>
+                        <a href="word.html" class="app-item">
+                            <i class="material-icons word-icon">description</i>
+                            <span>Word</span>
+                        </a>
+                        <a href="powerpoint.html" class="app-item">
+                            <i class="material-icons powerpoint-icon">slideshow</i>
+                            <span>PowerPoint</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Adobe Creative Cloud Category -->
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon adobe-icon">
+                            <i class="material-icons">brush</i>
+                        </div>
+                        <h3 class="category-title">Adobe Creative Cloud</h3>
+                    </div>
+                    <div class="app-grid">
+                        <a href="photoshop.html" class="app-item">
+                            <i class="material-icons photoshop-icon">photo</i>
+                            <span>Photoshop</span>
+                        </a>
+                        <a href="illustrator.html" class="app-item">
+                            <i class="material-icons illustrator-icon">gesture</i>
+                            <span>Illustrator</span>
+                        </a>
+                        <a href="premiere.html" class="app-item">
+                            <i class="material-icons premiere-icon">movie</i>
+                            <span>Premiere Pro</span>
+                        </a>
+                        <a href="aftereffects.html" class="app-item">
+                            <i class="material-icons aftereffects-icon">animation</i>
+                            <span>After Effects</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">What You'll Find</h2>
+            <div class="features-container">
+                <div class="feature-card">
+                    <i class="material-icons">functions</i>
+                    <h3>Formulas & Functions</h3>
+                    <p>Comprehensive list of essential formulas and functions with practical examples and explanations</p>
+                    <a href="excel.html" class="btn">
+                        <i class="material-icons">arrow_forward</i>
+                        Explore
+                    </a>
+                </div>
+                <div class="feature-card">
+                    <i class="material-icons">keyboard</i>
+                    <h3>Keyboard Shortcuts</h3>
+                    <p>Time-saving keyboard shortcuts organized by category to boost your productivity</p>
+                    <a href="interactive.html" class="btn">
+                        <i class="material-icons">arrow_forward</i>
+                        Practice
+                    </a>
+                </div>
+                <div class="feature-card">
+                    <i class="material-icons">school</i>
+                    <h3>Step-by-Step Tutorials</h3>
+                    <p>Visual tutorials for the most common and useful tasks in each application</p>
+                    <a href="learning.html" class="btn">
+                        <i class="material-icons">arrow_forward</i>
+                        Learn
+                    </a>
+                </div>
+                <div class="feature-card">
+                    <i class="material-icons">people</i>
+                    <h3>Community Contributions</h3>
+                    <p>Tips and tricks shared by our community of application experts</p>
+                    <a href="community.html" class="btn">
+                        <i class="material-icons">arrow_forward</i>
+                        Join
+                    </a>
+                </div>
+                <div class="feature-card">
+                    <i class="material-icons">search</i>
+                    <h3>Advanced Search</h3>
+                    <p>Find exactly what you need with powerful filters and contextual search</p>
+                    <a href="search.html" class="btn">
+                        <i class="material-icons">arrow_forward</i>
+                        Search
+                    </a>
+                </div>
+                <div class="feature-card">
+                    <i class="material-icons">person</i>
+                    <h3>Personalized Experience</h3>
+                    <p>Customize your interface, track progress, and create custom workflows</p>
+                    <a href="personalization.html" class="btn">
+                        <i class="material-icons">arrow_forward</i>
+                        Customize
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-container">
+                <h2 class="cta-title">Ready to Master Your Applications?</h2>
+                <p class="cta-description">Join thousands of users who are improving their productivity with our comprehensive cheatsheets</p>
+                <a href="account.html" class="cta-button">
+                    <i class="material-icons">person_add</i>
+                    Create Free Account
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="interactive.html">Interactive Testing</a></li>
+                        <li><a href="learning.html">Learning Tools</a></li>
+                        <li><a href="expansion.html">Content Expansion</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="account.html">My Account</a></li>
+                        <li><a href="performance.html">Performance</a></li>
+                        <li><a href="community.html">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 Application Cheatsheet Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
