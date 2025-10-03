@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Testing - Application Cheatsheet Hub</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --light-text: #6c757d;
+            --border-radius: 12px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --excel-color: #217346;
+            --word-color: #2b579a;
+            --powerpoint-color: #d24726;
+            --photoshop-color: #31a5ff;
+            --illustrator-color: #ff7c00;
+            --premiere-color: #9999ff;
+            --aftereffects-color: #9999ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--box-shadow);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        /* App Selection */
+        .app-selection {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .app-button {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .app-button i {
+            margin-right: 8px;
+        }
+
+        .app-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .app-button.active {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        /* Interactive Test Area */
+        .test-container {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .test-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .test-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .test-difficulty {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .difficulty-badge {
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .beginner {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .intermediate {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .advanced {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        /* Test Content */
+        .test-content {
+            margin-bottom: 2rem;
+        }
+
+        .test-description {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .test-example {
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .test-example-title {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .test-code {
+            font-family: 'Source Code Pro', monospace;
+            background-color: #f1f1f1;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            overflow-x: auto;
+        }
+
+        /* Interactive Area */
+        .interactive-area {
+            background-color: #f5f7fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .interactive-title {
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .input-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            align-items: center;
+        }
+
+        .input-group label {
+            min-width: 120px;
+            font-weight: 500;
+        }
+
+        .input-group input, .input-group select {
+            flex: 1;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Source Code Pro', monospace;
+        }
+
+        .input-group input:focus, .input-group select:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .btn i {
+            margin-right: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #2980b9;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        /* Result Area */
+        .result-area {
+            background-color: #e9f7ef;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            display: none;
+        }
+
+        .result-area.show {
+            display: block;
+        }
+
+        .result-title {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #155724;
+        }
+
+        .result-value {
+            font-family: 'Source Code Pro', monospace;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #155724;
+        }
+
+        /* Hint Section */
+        .hint-section {
+            background-color: #fff3cd;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            display: none;
+        }
+
+        .hint-section.show {
+            display: block;
+        }
+
+        .hint-title {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #856404;
+        }
+
+        /* Progress Tracker */
+        .progress-container {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .progress-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .progress-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .progress-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: white;
+        }
+
+        .progress-icon.completed {
+            background-color: #28a745;
+        }
+
+        .progress-icon.current {
+            background-color: var(--secondary-color);
+        }
+
+        .progress-icon.locked {
+            background-color: #6c757d;
+        }
+
+        .progress-info {
+            flex: 1;
+        }
+
+        .progress-name {
+            font-weight: 500;
+            margin-bottom: 0.2rem;
+        }
+
+        .progress-status {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .input-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .input-group label {
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="material-icons">school</i>
+                <a href="index.html" style="color: white; text-decoration: none;">Application Cheatsheet Hub</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="excel.html">Excel</a></li>
+                    <li><a href="word.html">Word</a></li>
+                    <li><a href="powerpoint.html">PowerPoint</a></li>
+                    <li><a href="photoshop.html">Photoshop</a></li>
+                    <li><a href="illustrator.html">Illustrator</a></li>
+                    <li><a href="premiere.html">Premiere Pro</a></li>
+                    <li><a href="aftereffects.html">After Effects</a></li>
+                    <li><a href="interactive.html" class="active">Interactive Testing</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Interactive Testing</h1>
+            <p>Practice formulas, shortcuts, and techniques with hands-on exercises</p>
+            
+            <div class="app-selection">
+                <button class="app-button active" onclick="selectApp('excel')">
+                    <i class="material-icons excel-icon">grid_on</i>
+                    Excel
+                </button>
+                <button class="app-button" onclick="selectApp('word')">
+                    <i class="material-icons word-icon">description</i>
+                    Word
+                </button>
+                <button class="app-button" onclick="selectApp('powerpoint')">
+                    <i class="material-icons powerpoint-icon">slideshow</i>
+                    PowerPoint
+                </button>
+                <button class="app-button" onclick="selectApp('photoshop')">
+                    <i class="material-icons photoshop-icon">photo</i>
+                    Photoshop
+                </button>
+                <button class="app-button" onclick="selectApp('illustrator')">
+                    <i class="material-icons illustrator-icon">gesture</i>
+                    Illustrator
+                </button>
+                <button class="app-button" onclick="selectApp('premiere')">
+                    <i class="material-icons premiere-icon">movie</i>
+                    Premiere Pro
+                </button>
+                <button class="app-button" onclick="selectApp('aftereffects')">
+                    <i class="material-icons aftereffects-icon">animation</i>
+                    After Effects
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="container">
+            <!-- Progress Tracker -->
+            <div class="progress-container">
+                <h2 class="progress-title">Your Progress</h2>
+                
+                <div class="progress-item">
+                    <div class="progress-icon completed">
+                        <i class="material-icons">check</i>
+                    </div>
+                    <div class="progress-info">
+                        <div class="progress-name">Excel: SUM Formula</div>
+                        <div class="progress-status">Completed</div>
+                    </div>
+                </div>
+                
+                <div class="progress-item">
+                    <div class="progress-icon current">
+                        <i class="material-icons">play_arrow</i>
+                    </div>
+                    <div class="progress-info">
+                        <div class="progress-name">Excel: VLOOKUP Formula</div>
+                        <div class="progress-status">In Progress</div>
+                    </div>
+                </div>
+                
+                <div class="progress-item">
+                    <div class="progress-icon locked">
+                        <i class="material-icons">lock</i>
+                    </div>
+                    <div class="progress-info">
+                        <div class="progress-name">Excel: Pivot Tables</div>
+                        <div class="progress-status">Locked</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Excel Test Content -->
+            <div id="excel-content" class="app-content">
+                <h2 class="section-title">Excel Formula Testing</h2>
+                
+                <div class="test-container">
+                    <div class="test-header">
+                        <h3 class="test-title">VLOOKUP Formula</h3>
+                        <div class="test-difficulty">
+                            <span class="difficulty-badge intermediate">Intermediate</span>
+                        </div>
+                    </div>
+                    
+                    <div class="test-content">
+                        <p class="test-description">The VLOOKUP function searches for a value in the first column of a table and returns a value in the same row from another column.</p>
+                        
+                        <div class="test-example">
+                            <div class="test-example-title">Example Scenario</div>
+                            <p>You have a product list with product IDs and prices. You want to find the price of a specific product using its ID.</p>
+                            
+                            <div class="test-code">
+                                =VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])
+                            </div>
+                        </div>
+                        
+                        <div class="interactive-area">
+                            <div class="interactive-title">Try It Yourself</div>
+                            
+                            <div class="input-group">
+                                <label>Lookup Value:</label>
+                                <input type="text" id="lookupValue" placeholder="Enter product ID (e.g., P102)">
+                            </div>
+                            
+                            <div class="input-group">
+                                <label>Table Array:</label>
+                                <select id="tableArray">
+                                    <option value="products">Products Table (A1:C10)</option>
+                                    <option value="customers">Customers Table (D1:F10)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label>Column Index:</label>
+                                <input type="number" id="colIndex" placeholder="Enter column number (e.g., 2)" min="1" max="10">
+                            </div>
+                            
+                            <div class="input-group">
+                                <label>Range Lookup:</label>
+                                <select id="rangeLookup">
+                                    <option value="false">Exact Match</option>
+                                    <option value="true">Approximate Match</option>
+                                </select>
+                            </div>
+                            
+                            <div class="button-group">
+                                <button class="btn btn-primary" onclick="testFormula()">
+                                    <i class="material-icons">play_arrow</i>
+                                    Test Formula
+                                </button>
+                                <button class="btn btn-secondary" onclick="showHint()">
+                                    <i class="material-icons">lightbulb</i>
+                                    Show Hint
+                                </button>
+                            </div>
+                            
+                            <div id="resultArea" class="result-area">
+                                <div class="result-title">Result:</div>
+                                <div id="resultValue" class="result-value">$19.99</div>
+                            </div>
+                            
+                            <div id="hintArea" class="hint-section">
+                                <div class="hint-title">Hint:</div>
+                                <p>Make sure your lookup value exists in the first column of the selected table. The column index should be a positive integer.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="test-container">
+                    <div class="test-header">
+                        <h3 class="test-title">Keyboard Shortcuts Practice</h3>
+                        <div class="test-difficulty">
+                            <span class="difficulty-badge beginner">Beginner</span>
+                        </div>
+                    </div>
+                    
+                    <div class="test-content">
+                        <p class="test-description">Practice common Excel keyboard shortcuts to improve your efficiency.</p>
+                        
+                        <div class="interactive-area">
+                            <div class="interactive-title">Shortcut Challenge</div>
+                            <p>What keyboard shortcut would you use to quickly select all cells in a worksheet?</p>
+                            
+                            <div class="input-group">
+                                <label>Your Answer:</label>
+                                <input type="text" id="shortcutAnswer" placeholder="Enter keyboard shortcut">
+                            </div>
+                            
+                            <div class="button-group">
+                                <button class="btn btn-primary" onclick="checkShortcut()">
+                                    <i class="material-icons">check</i>
+                                    Check Answer
+                                </button>
+                                <button class="btn btn-secondary" onclick="showShortcutHint()">
+                                    <i class="material-icons">lightbulb</i>
+                                    Show Hint
+                                </button>
+                            </div>
+                            
+                            <div id="shortcutResult" class="result-area">
+                                <div class="result-title">Result:</div>
+                                <div id="shortcutResultValue" class="result-value">Correct! Ctrl+A selects all cells in a worksheet.</div>
+                            </div>
+                            
+                            <div id="shortcutHintArea" class="hint-section">
+                                <div class="hint-title">Hint:</div>
+                                <p>This shortcut is also commonly used in many other applications to select all content.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Word Test Content (Hidden by default) -->
+            <div id="word-content" class="app-content" style="display: none;">
+                <h2 class="section-title">Word Shortcuts Testing</h2>
+                
+                <div class="test-container">
+                    <div class="test-header">
+                        <h3 class="test-title">Document Navigation Shortcuts</h3>
+                        <div class="test-difficulty">
+                            <span class="difficulty-badge beginner">Beginner</span>
+                        </div>
+                    </div>
+                    
+                    <div class="test-content">
+                        <p class="test-description">Practice navigating through your Word documents efficiently with keyboard shortcuts.</p>
+                        
+                        <div class="interactive-area">
+                            <div class="interactive-title">Shortcut Challenge</div>
+                            <p>What keyboard shortcut would you use to jump to the beginning of your document?</p>
+                            
+                            <div class="input-group">
+                                <label>Your Answer:</label>
+                                <input type="text" id="wordShortcutAnswer" placeholder="Enter keyboard shortcut">
+                            </div>
+                            
+                            <div class="button-group">
+                                <button class="btn btn-primary" onclick="checkWordShortcut()">
+                                    <i class="material-icons">check</i>
+                                    Check Answer
+                                </button>
+                                <button class="btn btn-secondary" onclick="showWordShortcutHint()">
+                                    <i class="material-icons">lightbulb</i>
+                                    Show Hint
+                                </button>
+                            </div>
+                            
+                            <div id="wordShortcutResult" class="result-area">
+                                <div class="result-title">Result:</div>
+                                <div id="wordShortcutResultValue" class="result-value">Correct! Ctrl+Home jumps to the beginning of the document.</div>
+                            </div>
+                            
+                            <div id="wordShortcutHintArea" class="hint-section">
+                                <div class="hint-title">Hint:</div>
+                                <p>This shortcut uses the Control key combined with a key that represents the start or home position.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Video Tutorials</a></li>
+                        <li><a href="#">Downloadable PDFs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contribute</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 Application Cheatsheet Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Function to select an application
+        function selectApp(app) {
+            // Hide all app content
+            const appContents = document.querySelectorAll('.app-content');
+            appContents.forEach(content => {
+                content.style.display = 'none';
+            });
+            
+            // Remove active class from all app buttons
+            const appButtons = document.querySelectorAll('.app-button');
+            appButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show selected app content
+            document.getElementById(`${app}-content`).style.display = 'block';
+            
+            // Add active class to clicked button
+            event.target.closest('.app-button').classList.add('active');
+        }
+        
+        // Function to test Excel formula
+        function testFormula() {
+            const lookupValue = document.getElementById('lookupValue').value;
+            const tableArray = document.getElementById('tableArray').value;
+            const colIndex = document.getElementById('colIndex').value;
+            const rangeLookup = document.getElementById('rangeLookup').value;
+            
+            // Show result area
+            const resultArea = document.getElementById('resultArea');
+            resultArea.classList.add('show');
+            
+            // Simulate formula result
+            const resultValue = document.getElementById('resultValue');
+            if (lookupValue && colIndex) {
+                // Simulate different results based on input
+                if (lookupValue.toLowerCase().includes('p101')) {
+                    resultValue.textContent = '$14.99';
+                } else if (lookupValue.toLowerCase().includes('p102')) {
+                    resultValue.textContent = '$19.99';
+                } else if (lookupValue.toLowerCase().includes('p103')) {
+                    resultValue.textContent = '$24.99';
+                } else {
+                    resultValue.textContent = '#N/A (Value not found)';
+                }
+            } else {
+                resultValue.textContent = 'Please enter all required values';
+            }
+        }
+        
+        // Function to show hint for formula
+        function showHint() {
+            const hintArea = document.getElementById('hintArea');
+            hintArea.classList.add('show');
+        }
+        
+        // Function to check shortcut answer
+        function checkShortcut() {
+            const answer = document.getElementById('shortcutAnswer').value.toLowerCase();
+            const resultArea = document.getElementById('shortcutResult');
+            const resultValue = document.getElementById('shortcutResultValue');
+            
+            resultArea.classList.add('show');
+            
+            if (answer === 'ctrl+a' || answer === 'ctrl + a') {
+                resultValue.textContent = 'Correct! Ctrl+A selects all cells in a worksheet.';
+            } else {
+                resultValue.textContent = 'Not quite. Try again or use the hint button.';
+            }
+        }
+        
+        // Function to show hint for shortcut
+        function showShortcutHint() {
+            const hintArea = document.getElementById('shortcutHintArea');
+            hintArea.classList.add('show');
+        }
+        
+        // Function to check Word shortcut answer
+        function checkWordShortcut() {
+            const answer = document.getElementById('wordShortcutAnswer').value.toLowerCase();
+            const resultArea = document.getElementById('wordShortcutResult');
+            const resultValue = document.getElementById('wordShortcutResultValue');
+            
+            resultArea.classList.add('show');
+            
+            if (answer === 'ctrl+home' || answer === 'ctrl + home') {
+                resultValue.textContent = 'Correct! Ctrl+Home jumps to the beginning of the document.';
+            } else {
+                resultValue.textContent = 'Not quite. Try again or use the hint button.';
+            }
+        }
+        
+        // Function to show hint for Word shortcut
+        function showWordShortcutHint() {
+            const hintArea = document.getElementById('wordShortcutHintArea');
+            hintArea.classList.add('show');
+        }
+    </script>
+</body>
+</html>
