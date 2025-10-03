@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Cheatsheet - Application Cheatsheet Hub</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --light-text: #6c757d;
+            --border-radius: 12px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --word-color: #2b579a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--box-shadow);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        /* App Header Section */
+        .app-header {
+            background: linear-gradient(135deg, var(--word-color), #1e3a6f);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .app-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .app-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .app-description {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            justify-content: center;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            position: sticky;
+            top: 70px;
+            z-index: 90;
+        }
+
+        .tab-button {
+            padding: 1rem 2rem;
+            background: none;
+            border: none;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--light-text);
+            cursor: pointer;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .tab-button:hover {
+            color: var(--word-color);
+        }
+
+        .tab-button.active {
+            color: var(--word-color);
+        }
+
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--word-color);
+        }
+
+        /* Content Sections */
+        .content-section {
+            display: none;
+            padding: 2rem 0;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title i {
+            margin-right: 10px;
+            color: var(--word-color);
+        }
+
+        /* Feature Cards */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--word-color);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-name i {
+            margin-right: 8px;
+        }
+
+        .feature-description {
+            margin-bottom: 1rem;
+        }
+
+        .feature-example {
+            background-color: #f9f9f9;
+            padding: 1rem;
+            border-left: 3px solid var(--word-color);
+            margin-top: 1rem;
+        }
+
+        .feature-example-title {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Keyboard Shortcuts */
+        .shortcut-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        .shortcut-table th {
+            background-color: var(--word-color);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .shortcut-table td {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .shortcut-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .shortcut-table tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .shortcut-key {
+            font-family: 'Source Code Pro', monospace;
+            background-color: #f1f1f1;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        /* Tutorial Cards */
+        .tutorial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tutorial-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .tutorial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .tutorial-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .tutorial-content {
+            padding: 1.5rem;
+        }
+
+        .tutorial-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .tutorial-description {
+            margin-bottom: 1rem;
+        }
+
+        .tutorial-steps {
+            margin-top: 1rem;
+        }
+
+        .tutorial-step {
+            display: flex;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-number {
+            background-color: var(--word-color);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem;
+            }
+
+            .app-title {
+                font-size: 2rem;
+            }
+
+            .tab-nav {
+                flex-wrap: wrap;
+            }
+
+            .tab-button {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="material-icons">school</i>
+                <a href="index.html" style="color: white; text-decoration: none;">Application Cheatsheet Hub</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="excel.html">Excel</a></li>
+                    <li><a href="word.html" class="active">Word</a></li>
+                    <li><a href="powerpoint.html">PowerPoint</a></li>
+                    <li><a href="photoshop.html">Photoshop</a></li>
+                    <li><a href="illustrator.html">Illustrator</a></li>
+                    <li><a href="premiere.html">Premiere Pro</a></li>
+                    <li><a href="aftereffects.html">After Effects</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- App Header Section -->
+    <section class="app-header">
+        <div class="container">
+            <i class="material-icons app-icon">description</i>
+            <h1 class="app-title">Microsoft Word Cheatsheet</h1>
+            <p class="app-description">Master Word with essential formatting tips, keyboard shortcuts, and step-by-step tutorials</p>
+        </div>
+    </section>
+
+    <!-- Tab Navigation -->
+    <div class="tab-nav">
+        <button class="tab-button active" onclick="showTab('formatting')">Formatting</button>
+        <button class="tab-button" onclick="showTab('shortcuts')">Keyboard Shortcuts</button>
+        <button class="tab-button" onclick="showTab('tutorials')">Tutorials</button>
+    </div>
+
+    <!-- Content Container -->
+    <div class="container">
+        <!-- Formatting Section -->
+        <section id="formatting" class="content-section active">
+            <h2 class="section-title"><i class="material-icons">format_align_left</i> Essential Formatting Features</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3 class="feature-name"><i class="material-icons">style</i> Styles</h3>
+                    <p class="feature-description">Apply predefined formatting to text elements for consistent document appearance.</p>
+                    <div class="feature-example">
+                        <div class="feature-example-title">How to use:</div>
+                        <p>Select text and choose from Styles gallery in Home tab (Heading 1, Normal, etc.)</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <h3 class="feature-name"><i class="material-icons">format_list_numbered</i> Numbering & Bullets</h3>
+                    <p class="feature-description">Create organized lists with automatic numbering or bullet points.</p>
+                    <div class="feature-example">
+                        <div class="feature-example-title">How to use:</div>
+                        <p>Select text and click Numbering or Bullets in the Paragraph group on Home tab</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <h3 class="feature-name"><i class="material-icons">table_chart</i> Tables</h3>
+                    <p class="feature-description">Insert and format tables to organize data in rows and columns.</p>
+                    <div class="feature-example">
+                        <div class="feature-example-title">How to use:</div>
+                        <p>Go to Insert > Table and select the number of rows and columns</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <h3 class="feature-name"><i class="material-icons">insert_photo</i> Images & Graphics</h3>
+                    <p class="feature-description">Add visual elements to enhance your document's appearance.</p>
+                    <div class="feature-example">
+                        <div class="feature-example-title">How to use:</div>
+                        <p>Go to Insert > Pictures to add images from your computer or online</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <h3 class="feature-name"><i class="material-icons">format_shapes</i> Shapes & SmartArt</h3>
+                    <p class="feature-description">Create diagrams and visual representations of information.</p>
+                    <div class="feature-example">
+                        <div class="feature-example-title">How to use:</div>
+                        <p>Go to Insert > Shapes or SmartArt to add visual elements</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <h3 class="feature-name"><i class="material-icons">bookmark</i> Headers & Footers</h3>
+                    <p class="feature-description">Add consistent information to the top or bottom of each page.</p>
+                    <div class="feature-example">
+                        <div class="feature-example-title">How to use:</div>
+                        <p>Go to Insert > Header or Footer to add page numbers, titles, etc.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Keyboard Shortcuts Section -->
+        <section id="shortcuts" class="content-section">
+            <h2 class="section-title"><i class="material-icons">keyboard</i> Keyboard Shortcuts</h2>
+            
+            <h3 style="margin-bottom: 1rem; color: var(--word-color);">Text Formatting Shortcuts</h3>
+            <table class="shortcut-table">
+                <thead>
+                    <tr>
+                        <th>Shortcut</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">B</span></td>
+                        <td>Apply or remove bold formatting</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">I</span></td>
+                        <td>Apply or remove italic formatting</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">U</span></td>
+                        <td>Apply or remove underline</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">Shift</span> + <span class="shortcut-key">></span></td>
+                        <td>Increase font size</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">Shift</span> + <span class="shortcut-key"><</span></td>
+                        <td>Decrease font size</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">D</span></td>
+                        <td>Open Font dialog box</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3 style="margin-bottom: 1rem; color: var(--word-color);">Paragraph Formatting Shortcuts</h3>
+            <table class="shortcut-table">
+                <thead>
+                    <tr>
+                        <th>Shortcut</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">L</span></td>
+                        <td>Align text left</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">R</span></td>
+                        <td>Align text right</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">E</span></td>
+                        <td>Center text</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">J</span></td>
+                        <td>Justify text</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">M</span></td>
+                        <td>Indent paragraph</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">Shift</span> + <span class="shortcut-key">M</span></td>
+                        <td>Remove paragraph indent</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3 style="margin-bottom: 1rem; color: var(--word-color);">Document Navigation Shortcuts</h3>
+            <table class="shortcut-table">
+                <thead>
+                    <tr>
+                        <th>Shortcut</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">Home</span></td>
+                        <td>Move to beginning of document</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">End</span></td>
+                        <td>Move to end of document</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">G</span></td>
+                        <td>Open Go To dialog box</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">F5</span></td>
+                        <td>Open Find and Replace dialog box</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">F</span></td>
+                        <td>Find text</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut-key">Ctrl</span> + <span class="shortcut-key">H</span></td>
+                        <td>Replace text</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Tutorials Section -->
+        <section id="tutorials" class="content-section">
+            <h2 class="section-title"><i class="material-icons">school</i> Popular Tutorials</h2>
+            
+            <div class="tutorial-grid">
+                <div class="tutorial-card">
+                    <img src="https://sfile.chatglm.cn/images-ppt/771bdf3c2d06.jpg" alt="Mail Merge Tutorial" class="tutorial-image">
+                    <div class="tutorial-content">
+                        <h3 class="tutorial-title">Creating Mail Merge Documents</h3>
+                        <p class="tutorial-description">Learn how to create personalized letters, envelopes, and labels using mail merge.</p>
+                        <div class="tutorial-steps">
+                            <div class="tutorial-step">
+                                <div class="step-number">1</div>
+                                <div>Go to Mailings > Start Mail Merge > Step-by-Step Mail Merge Wizard</div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-number">2</div>
+                                <div>Select document type (letters, envelopes, labels)</div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-number">3</div>
+                                <div>Connect to your data source (Excel, Outlook, etc.)</div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-number">4</div>
+                                <div>Complete the merge</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tutorial-card">
+                    <img src="https://sfile.chatglm.cn/images-ppt/5d35077cf8c9.jpg" alt="Table of Contents Tutorial" class="tutorial-image">
+                    <div class="tutorial-content">
+                        <h3 class="tutorial-title">Creating Automatic Table of Contents</h3>
+                        <p class="tutorial-description">Generate a professional table of contents that updates automatically.</p>
+                        <div class="tutorial-steps">
+                            <div class="tutorial-step">
+                                <div class="step-number">1</div>
+                                <div>Apply heading styles to your document sections</div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-number">2</div>
+                                <div>Place cursor where you want the table of contents</div>
+                            </div>
+                            <div class="div class="tutorial-step">
+                                <div class="step-number">3</div>
+                                <div>Go to References > Table of Contents > Automatic Table</div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-number">4</div>
+                                <div>Right-click and select Update Field to refresh</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tutorial-card">
+                    <img src="https://sfile.chatglm.cn/images-ppt/43853a3eb908.jpg" alt="Track Changes Tutorial" class="tutorial-image">
+                    <div class="tutorial-content">
+                        <h3 class="tutorial-title">Using Track Changes for Collaboration</h3>
+                        <p class="tutorial-description">Track edits, comments, and suggestions when collaborating on documents.</p>
+                        <div class="tutorial-steps">
+                            <div class="tutorial-step">
+                                <div class="step-number">1</div>
+                                <div>Go to Review > Track Changes to turn on tracking</div>
+                            </div>
+                            <div class="tutorial-step">
+                                <div class="step-number">2</div>
+                                <div>Make edits - they will be marked with formatting</div>
+                            </div>
+                            <div class="div class="tutorial-step">
+                                <div class="step-number">3</div>
+                                <div>Use Comments to add notes without changing text</div>
+                            </div>
+                            <div class="div class="tutorial-step">
+                                <div class="step-number">4</div>
+                                <div>Use Accept/Reject to finalize changes</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Video Tutorials</a></li>
+                        <li><a href="#">Downloadable PDFs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contribute</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 Application Cheatsheet Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all content sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all tab buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show the selected content section
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to the clicked tab button
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
