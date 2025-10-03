@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Account - Application Cheatsheet Hub</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --light-text: #6c757d;
+            --border-radius: 12px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --excel-color: #217346;
+            --word-color: #2b579a;
+            --powerpoint-color: #d24726;
+            --photoshop-color: #31a5ff;
+            --illustrator-color: #ff7c00;
+            --premiere-color: #9999ff;
+            --aftereffects-color: #9999ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--box-shadow);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        /* User Profile Section */
+        .user-profile {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: white;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary-color);
+        }
+
+        .profile-name {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-email {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            justify-content: center;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            position: sticky;
+            top: 70px;
+            z-index: 90;
+        }
+
+        .tab-button {
+            padding: 1rem 2rem;
+            background: none;
+            border: none;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--light-text);
+            cursor: pointer;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .tab-button:hover {
+            color: var(--secondary-color);
+        }
+
+        .tab-button.active {
+            color: var(--secondary-color);
+        }
+
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        /* Content Sections */
+        .content-section {
+            display: none;
+            padding: 2rem 0;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+
+        /* Progress Cards */
+        .progress-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .progress-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .progress-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .progress-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .progress-title i {
+            margin-right: 8px;
+            color: var(--secondary-color);
+        }
+
+        .progress-percentage {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        .progress-bar-container {
+            height: 8px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: var(--secondary-color);
+            border-radius: 4px;
+        }
+
+        .progress-details {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        /* Favorites Grid */
+        .favorites-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .favorite-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 1.5rem;
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .favorite-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .favorite-icon {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: var(--accent-color);
+        }
+
+        .favorite-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .favorite-app {
+            font-size: 0.9rem;
+            color: var(--light-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .favorite-description {
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+
+        /* Settings Form */
+        .settings-form {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            background-color: white;
+        }
+
+        .form-select:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .form-checkbox input {
+            margin-right: 0.5rem;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .btn i {
+            margin-right: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #2980b9;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        /* Notification Settings */
+        .notification-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .notification-item:last-child {
+            border-bottom: none;
+        }
+
+        .notification-info {
+            flex: 1;
+        }
+
+        .notification-title {
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+
+        .notification-description {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        /* Toggle Switch */
+        .toggle-switch {
+            position: relative;
+            width: 50px;
+            height: 26px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: var(--transition);
+            border-radius: 26px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: var(--transition);
+            border-radius: 50%;
+        }
+
+        input:checked + .toggle-slider {
+            background-color: var(--secondary-color);
+        }
+
+        input:checked + .toggle-slider:before {
+            transform: translateX(24px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem;
+            }
+
+            .profile-stats {
+                gap: 1.5rem;
+            }
+
+            .tab-nav {
+                flex-wrap: wrap;
+            }
+
+            .tab-button {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="material-icons">school</i>
+                <a href="index.html" style="color: white; text-decoration: none;">Application Cheatsheet Hub</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="excel.html">Excel</a></li>
+                    <li><a href="word.html">Word</a></li>
+                    <li><a href="powerpoint.html">PowerPoint</a></li>
+                    <li><a href="photoshop.html">Photoshop</a></li>
+                    <li><a href="illustrator.html">Illustrator</a></li>
+                    <li><a href="premiere.html">Premiere Pro</a></li>
+                    <li><a href="aftereffects.html">After Effects</a></li>
+                    <li><a href="interactive.html">Interactive Testing</a></li>
+                    <li><a href="account.html" class="active">My Account</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- User Profile Section -->
+    <section class="user-profile">
+        <div class="container">
+            <div class="profile-avatar">
+                <i class="material-icons">person</i>
+            </div>
+            <h1 class="profile-name">John Doe</h1>
+            <p class="profile-email">john.doe@example.com</p>
+            
+            <div class="profile-stats">
+                <div class="stat-item">
+                    <div class="stat-value">15</div>
+                    <div class="stat-label">Completed Tutorials</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">32</div>
+                    <div class="stat-label">Saved Favorites</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">7</div>
+                    <div class="stat-label">Days Streak</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tab Navigation -->
+    <div class="tab-nav">
+        <button class="tab-button active" onclick="showTab('progress')">Learning Progress</button>
+        <button class="tab-button" onclick="showTab('favorites')">My Favorites</button>
+        <button class="tab-button" onclick="showTab('settings')">Settings</button>
+    </div>
+
+    <!-- Content Container -->
+    <div class="container">
+        <!-- Progress Section -->
+        <section id="progress" class="content-section active">
+            <h2 class="section-title"><i class="material-icons">trending_up</i> Learning Progress</h2>
+            
+            <div class="progress-grid">
+                <div class="progress-card">
+                    <div class="progress-header">
+                        <h3 class="progress-title"><i class="material-icons excel-icon">grid_on</i> Excel</h3>
+                        <div class="progress-percentage">75%</div>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 75%;"></div>
+                    </div>
+                    <div class="progress-details">
+                        <span>6 of 8 tutorials completed</span>
+                        <span>Last activity: 2 days ago</span>
+                    </div>
+                </div>
+                
+                <div class="progress-card">
+                    <div class="progress-header">
+                        <h3 class="progress-title"><i class="material-icons word-icon">description</i> Word</h3>
+                        <div class="progress-percentage">50%</div>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 50%;"></div>
+                    </div>
+                    <div class="progress-details">
+                        <span>3 of 6 tutorials completed</span>
+                        <span>Last activity: 1 week ago</span>
+                    </div>
+                </div>
+                
+                <div class="progress-card">
+                    <div class="progress-header">
+                        <h3 class="progress-title"><i class="material-icons powerpoint-icon">slideshow</i> PowerPoint</h3>
+                        <div class="progress-percentage">25%</div>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 25%;"></div>
+                    </div>
+                    <div class="progress-details">
+                        <span>1 of 4 tutorials completed</span>
+                        <span>Last activity: 2 weeks ago</span>
+                    </div>
+                </div>
+                
+                <div class="progress-card">
+                    <div class="progress-header">
+                        <h3 class="progress-title"><i class="material-icons photoshop-icon">photo</i> Photoshop</h3>
+                        <div class="progress-percentage">60%</div>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 60%;"></div>
+                    </div>
+                    <div class="progress-details">
+                        <span>3 of 5 tutorials completed</span>
+                        <span>Last activity: 3 days ago</span>
+                    </div>
+                </div>
+                
+                <div class="progress-card">
+                    <div class="progress-header">
+                        <h3 class="progress-title"><i class="material-icons illustrator-icon">gesture</i> Illustrator</h3>
+                        <div class="progress-percentage">40%</div>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 40%;"></div>
+                    </div>
+                    <div class="progress-details">
+                        <span>2 of 5 tutorials completed</span>
+                        <span>Last activity: 5 days ago</span>
+                    </div>
+                </div>
+                
+                <div class="progress-card">
+                    <div class="progress-header">
+                        <h3 class="progress-title"><i class="material-icons premiere-icon">movie</i> Premiere Pro</h3>
+                        <div class="progress-percentage">30%</div>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 30%;"></div>
+                    </div>
+                    <div class="progress-details">
+                        <span>1 of 4 tutorials completed</span>
+                        <span>Last activity: 1 week ago</span>
+                    </div>
+                </div>
+                
+                <div class="progress-card">
+                    <div class="progress-header">
+                        <h3 class="progress-title"><i class="material-icons aftereffects-icon">animation</i> After Effects</h3>
+                        <div class="progress-percentage">20%</div>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 20%;"></div>
+                    </div>
+                    <div class="progress-details">
+                        <span>1 of 5 tutorials completed</span>
+                        <span>Last activity: 2 weeks ago</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Favorites Section -->
+        <section id="favorites" class="content-section">
+            <h2 class="section-title"><i class="material-icons">favorite</i> My Favorites</h2>
+            
+            <div class="favorites-grid">
+                <div class="favorite-card">
+                    <i class="material-icons favorite-icon">favorite</i>
+                    <h3 class="favorite-title">VLOOKUP Formula</h3>
+                    <p class="favorite-app">Excel</p>
+                    <p class="favorite-description">Search for a value in the first column of a table and return a value in the same row from another column.</p>
+                </div>
+                
+                <div class="favorite-card">
+                    <i class="material-icons favorite-icon">favorite</i>
+                    <h3 class="favorite-title">Mail Merge</h3>
+                    <p class="favorite-app">Word</p>
+                    <p class="favorite-description">Create personalized letters, envelopes, and labels using mail merge.</p>
+                </div>
+                
+                <div class="favorite-card">
+                    <i class="material-icons favorite-icon">favorite</i>
+                    <h3 class="favorite-title">Layer Masks</h3>
+                    <p class="favorite-app">Photoshop</p>
+                    <p class="favorite-description">Master non-destructive editing with layer masks.</p>
+                </div>
+                
+                <div class="favorite-card">
+                    <i class="material-icons favorite-icon">favorite</i>
+                    <h3 class="favorite-title">Pen Tool</h3>
+                    <p class="favorite-app">Illustrator</p>
+                    <p class="favorite-description">Create precise paths and shapes with anchor points.</p>
+                </div>
+                
+                <div class="favorite-card">
+                    <i class="material-icons favorite-icon">favorite</i>
+                    <h3 class="favorite-title">Ripple Edit Tool</h3>
+                    <p class="favorite-app">Premiere Pro</p>
+                    <p class="favorite-description">Trim clips and close gaps automatically.</p>
+                </div>
+                
+                <div class="favorite-card">
+                    <i class="material-icons favorite-icon">favorite</i>
+                    <h3 class="favorite-title">Keyframes</h3>
+                    <p class="favorite-app">After Effects</p>
+                    <p class="favorite-description">Create animations by setting keyframes at different points in time.</p>
+                </div>
+                
+                <div class="favorite-card">
+                    <i class="material-icons favorite-icon">favorite</i>
+                    <h3 class="favorite-title">Pivot Tables</h3>
+                    <p class="favorite-app">Excel</p>
+                    <p class="favorite-description">Analyze large datasets efficiently with pivot tables.</p>
+                </div>
+                
+                <div class="favorite-card">
+                    <i class="material-icons favorite-icon">favorite</i>
+                    <h3 class="favorite-title">Custom Slide Masters</h3>
+                    <p class="favorite-app">PowerPoint</p>
+                    <p class="favorite-description">Design professional templates with consistent branding and layout.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Settings Section -->
+        <section id="settings" class="content-section">
+            <h2 class="section-title"><i class="material-icons">settings</i> Account Settings</h2>
+            
+            <div class="settings-form">
+                <h3 style="margin-bottom: 1.5rem;">Profile Information</h3>
+                
+                <div class="form-group">
+                    <label class="form-label" for="name">Full Name</label>
+                    <input type="text" id="name" class="form-input" value="John Doe">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="email">Email Address</label>
+                    <input type="email" id="email" class="form-input" value="john.doe@example.com">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="bio">Bio</label>
+                    <textarea id="bio" class="form-input" rows="4">Learning to master productivity tools and creative software.</textarea>
+                </div>
+                
+                <div class="button-group">
+                    <button class="btn btn-secondary">
+                        <i class="material-icons">cancel</i>
+                        Cancel
+                    </button>
+                    <button class="btn btn-primary">
+                        <i class="material-icons">save</i>
+                        Save Changes
+                    </button>
+                </div>
+            </div>
+            
+            <div class="settings-form">
+                <h3 style="margin-bottom: 1.5rem;">Preferences</h3>
+                
+                <div class="form-group">
+                    <label class="form-label" for="theme">Theme</label>
+                    <select id="theme" class="form-select">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                        <option value="auto">Auto (System)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="language">Language</label>
+                    <select id="language" class="form-select">
+                        <option value="en">English</option>
+                        <option value="es">Spanish</option>
+                        <option value="fr">French</option>
+                        <option value="de">German</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="timezone">Timezone</label>
+                    <select id="timezone" class="form-select">
+                        <option value="pst">Pacific Time (PT)</option>
+                        <option value="mst">Mountain Time (MT)</option>
+                        <option value="cst">Central Time (CT)</option>
+                        <option value="est">Eastern Time (ET)</option>
+                    </select>
+                </div>
+                
+                <div class="form-checkbox">
+                    <input type="checkbox" id="animations" checked>
+                    <label for="animations">Enable animations</label>
+                </div>
+                
+                <div class="form-checkbox">
+                    <input type="checkbox" id="keyboard-shortcuts" checked>
+                    <label for="keyboard-shortcuts">Show keyboard shortcuts</label>
+                </div>
+                
+                <div class="button-group">
+                    <button class="btn btn-secondary">
+                        <i class="material-icons">cancel</i>
+                        Cancel
+                    </button>
+                    <button class="btn btn-primary">
+                        <i class="material-icons">save</i>
+                        Save Changes
+                    </button>
+                </div>
+            </div>
+            
+            <div class="settings-form">
+                <h3 style="margin-bottom: 1.5rem;">Notifications</h3>
+                
+                <div class="notification-item">
+                    <div class="notification-info">
+                        <div class="notification-title">Email Notifications</div>
+                        <div class="notification-description">Receive email updates about new tutorials and features</div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                
+                <div class="notification-item">
+                    <div class="notification-info">
+                        <div class="notification-title">Learning Reminders</div>
+                        <div class="notification-description">Get reminders to continue your learning journey</div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                
+                <div class="notification-item">
+                    <div class="notification-info">
+                        <div class="notification-title">Achievement Notifications</div>
+                        <div class="notification-description">Celebrate when you complete tutorials or reach milestones</div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                
+                <div class="notification-item">
+                    <div class="notification-info">
+                        <div class="notification-title">Community Updates</div>
+                        <div class="notification-description">Stay informed about community contributions and discussions</div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Video Tutorials</a></li>
+                        <li><a href="#">Downloadable PDFs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contribute</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 Application Cheatsheet Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all content sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all tab buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show the selected content section
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to the clicked tab button
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
