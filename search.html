@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Search - Application Cheatsheet Hub</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --light-text: #6c757d;
+            --border-radius: 12px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --excel-color: #217346;
+            --word-color: #2b579a;
+            --powerpoint-color: #d24726;
+            --photoshop-color: #31a5ff;
+            --illustrator-color: #ff7c00;
+            --premiere-color: #9999ff;
+            --aftereffects-color: #9999ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--box-shadow);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Search Section */
+        .search-section {
+            padding: 3rem 0;
+        }
+
+        .search-container {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .search-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-title i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+
+        .search-form {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            font-size: 1rem;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+
+        .search-button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 1rem 2rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .search-button:hover {
+            background-color: #2980b9;
+        }
+
+        .search-button i {
+            margin-right: 8px;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .filter-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .filter-title i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+
+        .filter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .filter-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-label {
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .filter-chip {
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-chip:hover {
+            background-color: #e9ecef;
+        }
+
+        .filter-chip.active {
+            background-color: var(--secondary-color);
+            color: white;
+            border-color: var(--secondary-color);
+        }
+
+        /* Results Section */
+        .results-section {
+            padding: 2rem 0;
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .results-count {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .sort-dropdown {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: white;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .result-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 1.5rem;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .result-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .result-app {
+            display: flex;
+            align-items: center;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: white;
+        }
+
+        .excel-app {
+            background-color: var(--excel-color);
+        }
+
+        .word-app {
+            background-color: var(--word-color);
+        }
+
+        .powerpoint-app {
+            background-color: var(--powerpoint-color);
+        }
+
+        .photoshop-app {
+            background-color: var(--photoshop-color);
+        }
+
+        .illustrator-app {
+            background-color: var(--illustrator-color);
+        }
+
+        .premiere-app {
+            background-color: var(--premiere-color);
+        }
+
+        .aftereffects-app {
+            background-color: var(--aftereffects-color);
+        }
+
+        .result-description {
+            margin-bottom: 1rem;
+            color: var(--light-text);
+        }
+
+        .result-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        .result-difficulty {
+            display: flex;
+            align-items: center;
+        }
+
+        .difficulty-badge {
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .beginner {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .intermediate {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .advanced {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        /* Related Searches */
+        .related-section {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .related-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .related-title i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+
+        .related-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .related-tag {
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .related-tag:hover {
+            background-color: #e9ecef;
+        }
+
+        .related-tag i {
+            margin-right: 5px;
+            font-size: 0.9rem;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .pagination-button {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 0.5rem 1rem;
+            margin: 0 0.25rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .pagination-button:hover {
+            background-color: #f1f1f1;
+        }
+
+        .pagination-button.active {
+            background-color: var(--secondary-color);
+            color: white;
+            border-color: var(--secondary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .search-form {
+                flex-direction: column;
+            }
+
+            .filter-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="material-icons">school</i>
+                <a href="index.html" style="color: white; text-decoration: none;">Application Cheatsheet Hub</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="excel.html">Excel</a></li>
+                    <li><a href="word.html">Word</a></li>
+                    <li><a href="powerpoint.html">PowerPoint</a></li>
+                    <li><a href="photoshop.html">Photoshop</a></li>
+                    <li><a href="illustrator.html">Illustrator</a></li>
+                    <li><a href="premiere.html">Premiere Pro</a></li>
+                    <li><a href="aftereffects.html">After Effects</a></li>
+                    <li><a href="interactive.html">Interactive Testing</a></li>
+                    <li><a href="account.html">My Account</a></li>
+                    <li><a href="search.html" class="active">Advanced Search</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Advanced Search</h1>
+            <p>Find exactly what you need with powerful filters and contextual search</p>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-container">
+                <h2 class="search-title"><i class="material-icons">search</i> Search for Formulas, Shortcuts, and Tutorials</h2>
+                
+                <div class="search-form">
+                    <input type="text" class="search-input" placeholder="Enter keywords, formulas, or shortcuts..." id="searchInput">
+                    <button class="search-button" onclick="performSearch()">
+                        <i class="material-icons">search</i>
+                        Search
+                    </button>
+                </div>
+                
+                <div id="searchSuggestions" style="display: none; margin-top: 1rem; padding: 1rem; background-color: #f9f9f9; border-radius: 8px;">
+                    <div style="font-weight: 500; margin-bottom: 0.5rem;">Popular searches:</div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                        <span class="filter-chip" onclick="setSearchTerm('VLOOKUP')">VLOOKUP</span>
+                        <span class="filter-chip" onclick="setSearchTerm('pivot table')">Pivot Table</span>
+                        <span class="filter-chip" onclick="setSearchTerm('mail merge')">Mail Merge</span>
+                        <span class="filter-chip" onclick="setSearchTerm('layer mask')">Layer Mask</span>
+                        <span class="filter-chip" onclick="setSearchTerm('keyboard shortcuts')">Keyboard Shortcuts</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="filter-section">
+                <h2 class="filter-title"><i class="material-icons">filter_list</i> Filters</h2>
+                
+                <div class="filter-grid">
+                    <div class="filter-group">
+                        <label class="filter-label">Application</label>
+                        <div class="filter-options">
+                            <div class="filter-chip" onclick="toggleFilter(this, 'app', 'excel')">Excel</div>
+                            <div class="filter-chip" onclick="toggleFilter(this, 'app', 'word')">Word</div>
+                            <div class="filter-chip" onclick="toggleFilter(this, 'app', 'powerpoint')">PowerPoint</div>
+                            <div class="filter-chip" onclick="toggleFilter(this, 'app', 'photoshop')">Photoshop</div>
+                            <div class="filter-chip" onclick="toggleFilter(this, 'app', 'illustrator')">Illustrator</div>
+                            <div class="filter-chip" onclick="toggleFilter(this, 'app', 'premiere')">Premiere Pro</div>
+                            <div class="filter-chip" onclick="toggleFilter(this, 'app', 'aftereffects')">After Effects</div>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">Difficulty Level</label>
+                        <div class="filter-options">
+                            <div class="filter-chip" onclick="toggleFilter(this, 'difficulty', 'beginner')">Beginner</div>
+                            <div class="filter-chip" onclick="toggleFilter(this, 'difficulty', 'intermediate')">Intermediate</div>
+                            <div class="filter-chip" onclick="toggleFilter(this, 'difficulty', 'advanced')">Advanced</div>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">Content Type</label>
+                        <div class="filter-options">
+                            <div class="filter-chip" onclick="toggleFilter(this, 'type', 'formulas')">Formulas</div>
+                            <div class="filter-chip" onclick="toggleFilter(this, 'type', 'shortcuts')">Shortcuts</div>
+                            <div class="filter-chip" onclick="toggleFilter(this, 'type', 'tutorials')">Tutorials</div>
+                            <div class="filter-chip" onclick="toggleFilter(this, 'type', 'tools')">Tools</div>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">Use Case</label>
+                        <div class="filter-options">
+                            <div class="filter-chip" onclick="toggleFilter(this, 'usecase', 'data-analysis')">Data Analysis</div>
+                            <div class="filter-chip" onclick="toggleFilter(this, 'usecase', 'document-creation')">Document Creation</div>
+                            <div class="filter-chip" onclick="toggleFilter(this, 'usecase', 'presentation')">Presentation</div>
+                            <div class="filter-chip" onclick="toggleFilter(this, 'usecase', 'photo-editing')">Photo Editing</div>
+                            <div class="filter-chip" onclick="toggleFilter(this, 'usecase', 'graphic-design')">Graphic Design</div>
+                            <div class="filter-chip" onclick="toggleFilter(this, 'usecase', 'video-editing')">Video Editing</div>
+                            <div class="filter-chip" onclick="toggleFilter(this, 'usecase', 'animation')">Animation</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 1.5rem; display: flex; justify-content: space-between;">
+                    <button class="btn btn-secondary" onclick="clearFilters()">
+                        <i class="material-icons">clear</i>
+                        Clear Filters
+                    </button>
+                    <button class="btn btn-primary" onclick="applyFilters()">
+                        <i class="material-icons">check</i>
+                        Apply Filters
+                    </button>
+                </div>
+            </div>
+            
+            <div class="results-section">
+                <div class="results-header">
+                    <div class="results-count">Found 24 results</div>
+                    <select class="sort-dropdown">
+                        <option>Relevance</option>
+                        <option>Most Popular</option>
+                        <option>Newest First</option>
+                        <option>Alphabetical</option>
+                    </select>
+                </div>
+                
+                <div class="results-grid">
+                    <div class="result-card" onclick="openResult('vlookup')">
+                        <div class="result-header">
+                            <h3 class="result-title">VLOOKUP Formula</h3>
+                            <div class="result-app excel-app">Excel</div>
+                        </div>
+                        <p class="result-description">Search for a value in the first column of a table and return a value in the same row from another column.</p>
+                        <div class="result-meta">
+                            <div class="result-difficulty">
+                                <span class="difficulty-badge intermediate">Intermediate</span>
+                            </div>
+                            <div>Formulas</div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-card" onclick="openResult('pivot-table')">
+                        <div class="result-header">
+                            <h3 class="result-title">Creating Pivot Tables</h3>
+                            <div class="result-app excel-app">Excel</div>
+                        </div>
+                        <p class="result-description">Analyze large datasets efficiently with pivot tables to summarize and explore data.</p>
+                        <div class="result-meta">
+                            <div class="result-difficulty">
+                                <span class="difficulty-badge intermediate">Intermediate</span>
+                            </div>
+                            <div>Tutorials</div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-card" onclick="openResult('mail-merge')">
+                        <div class="result-header">
+                            <h3 class="result-title">Mail Merge</h3>
+                            <div class="result-app word-app">Word</div>
+                        </div>
+                        <p class="result-description">Create personalized letters, envelopes, and labels using mail merge.</p>
+                        <div class="result-meta">
+                            <div class="result-difficulty">
+                                <span class="difficulty-badge beginner">Beginner</span>
+                            </div>
+                            <div>Tutorials</div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-card" onclick="openResult('layer-mask')">
+                        <div class="result-header">
+                            <h3 class="result-title">Using Layer Masks</h3>
+                            <div class="result-app photoshop-app">Photoshop</div>
+                        </div>
+                        <p class="result-description">Master non-destructive editing with layer masks to hide or reveal parts of layers.</p>
+                        <div class="result-meta">
+                            <div class="result-difficulty">
+                                <span class="difficulty-badge intermediate">Intermediate</span>
+                            </div>
+                            <div>Tutorials</div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-card" onclick="openResult('pen-tool')">
+                        <div class="result-header">
+                            <h3 class="result-title">Pen Tool</h3>
+                            <div class="result-app illustrator-app">Illustrator</div>
+                        </div>
+                        <p class="result-description">Create precise paths and shapes with anchor points using the Pen Tool.</p>
+                        <div class="result-meta">
+                            <div class="result-difficulty">
+                                <span class="difficulty-badge intermediate">Intermediate</span>
+                            </div>
+                            <div>Tools</div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-card" onclick="openResult('keyboard-shortcuts')">
+                        <div class="result-header">
+                            <h3 class="result-title">Essential Keyboard Shortcuts</h3>
+                            <div class="result-app excel-app">Excel</div>
+                        </div>
+                        <p class="result-description">Master the most useful keyboard shortcuts to navigate and edit spreadsheets efficiently.</p>
+                        <div class="result-meta">
+                            <div class="result-difficulty">
+                                <span class="difficulty-badge beginner">Beginner</span>
+                            </div>
+                            <div>Shortcuts</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pagination">
+                    <button class="pagination-button">Previous</button>
+                    <button class="pagination-button active">1</button>
+                    <button class="pagination-button">2</button>
+                    <button class="pagination-button">3</button>
+                    <button class="pagination-button">Next</button>
+                </div>
+            </div>
+            
+            <div class="related-section">
+                <h2 class="related-title"><i class="material-icons">trending_up</i> Related Searches</h2>
+                
+                <div class="related-tags">
+                    <div class="related-tag" onclick="setSearchTerm('SUM formula')">
+                        <i class="material-icons">arrow_forward</i>
+                        SUM formula
+                    </div>
+                    <div class="related-tag" onclick="setSearchTerm('conditional formatting')">
+                        <i class="material-icons">arrow_forward</i>
+                        Conditional formatting
+                    </div>
+                    <div class="related-tag" onclick="setSearchTerm('track changes')">
+                        <i class="material-icons">arrow_forward</i>
+                        Track changes
+                    </div>
+                    <div class="related-tag" onclick="setSearchTerm('slide master')">
+                        <i class="material-icons">arrow_forward</i>
+                        Slide master
+                    </div>
+                    <div class="related-tag" onclick="setSearchTerm('pathfinder')">
+                        <i class="material-icons">arrow_forward</i>
+                        Pathfinder
+                    </div>
+                    <div class="related-tag" onclick="setSearchTerm('color correction')">
+                        <i class="material-icons">arrow_forward</i>
+                        Color correction
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Video Tutorials</a></li>
+                        <li><a href="#">Downloadable PDFs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contribute</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 Application Cheatsheet Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Show search suggestions when input is focused
+        document.getElementById('searchInput').addEventListener('focus', function() {
+            document.getElementById('searchSuggestions').style.display = 'block';
+        });
+        
+        // Hide search suggestions when input is blurred
+        document.getElementById('searchInput').addEventListener('blur', function() {
+            setTimeout(function() {
+                document.getElementById('searchSuggestions').style.display = 'none';
+            }, 200);
+        });
+        
+        // Set search term from suggestions
+        function setSearchTerm(term) {
+            document.getElementById('searchInput').value = term;
+            document.getElementById('searchSuggestions').style.display = 'none';
+            performSearch();
+        }
+        
+        // Toggle filter selection
+        function toggleFilter(element, category, value) {
+            element.classList.toggle('active');
+        }
+        
+        // Clear all filters
+        function clearFilters() {
+            const filterChips = document.querySelectorAll('.filter-chip');
+            filterChips.forEach(chip => {
+                chip.classList.remove('active');
+            });
+        }
+        
+        // Apply filters
+        function applyFilters() {
+            // In a real implementation, this would filter the results
+            console.log('Applying filters...');
+        }
+        
+        // Perform search
+        function performSearch() {
+            const searchTerm = document.getElementById('searchInput').value;
+            if (searchTerm) {
+                console.log('Searching for:', searchTerm);
+                // In a real implementation, this would perform the search
+            }
+        }
+        
+        // Open result
+        function openResult(resultId) {
+            console.log('Opening result:', resultId);
+            // In a real implementation, this would navigate to the result page
+        }
+    </script>
+</body>
+</html>
